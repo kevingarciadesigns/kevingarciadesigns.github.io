@@ -1,0 +1,381 @@
+%!Adobe-FontList 1.24
+%Locale:0xc0a
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Black
+FamilyName:Avenir
+StyleName:Black
+FullName:Avenir Black
+MenuName:Avenir Black
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:704
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:800
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Avenir Black
+NameArray:0,Mac,4,Avenir Black
+NameArray:0,Win,1,Avenir Black
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-BlackOblique
+FamilyName:Avenir
+StyleName:Black Oblique
+FullName:Avenir Black Oblique
+MenuName:Avenir Black Oblique
+StyleBits:3
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:1004
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:800
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,18,Avenir Black Oblique
+NameArray:0,Mac,4,Avenir Black Oblique
+NameArray:0,Win,1,Avenir Black Oblique
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Book
+FamilyName:Avenir
+StyleName:Book
+FullName:Avenir Book
+MenuName:Avenir Book
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:72
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Avenir Book
+NameArray:0,Mac,4,Avenir Book
+NameArray:0,Win,1,Avenir Book
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-BookOblique
+FamilyName:Avenir
+StyleName:Book Oblique
+FullName:Avenir Book Oblique
+MenuName:Avenir Book
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:388
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:400
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,18,Avenir Book Oblique
+NameArray:0,Mac,4,Avenir Book Oblique
+NameArray:0,Win,1,Avenir Book
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Heavy
+FamilyName:Avenir
+StyleName:Heavy
+FullName:Avenir Heavy
+MenuName:Avenir Heavy
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:1304
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:900
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Avenir Heavy
+NameArray:0,Mac,4,Avenir Heavy
+NameArray:0,Win,1,Avenir Heavy
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-HeavyOblique
+FamilyName:Avenir
+StyleName:Heavy Oblique
+FullName:Avenir Heavy Oblique
+MenuName:Avenir Heavy
+StyleBits:3
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:1588
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:900
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,18,Avenir Heavy Oblique
+NameArray:0,Mac,4,Avenir Heavy Oblique
+NameArray:0,Win,1,Avenir Heavy
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Light
+FamilyName:Avenir
+StyleName:Light
+FullName:Avenir Light
+MenuName:Avenir Light
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:1904
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Avenir Light
+NameArray:0,Mac,4,Avenir Light
+NameArray:0,Win,1,Avenir Light
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-LightOblique
+FamilyName:Avenir
+StyleName:Light Oblique
+FullName:Avenir Light Oblique
+MenuName:Avenir Light
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:2220
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:300
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,18,Avenir Light Oblique
+NameArray:0,Mac,4,Avenir Light Oblique
+NameArray:0,Win,1,Avenir Light
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Medium
+FamilyName:Avenir
+StyleName:Medium
+FullName:Avenir Medium
+MenuName:Avenir Medium
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:2536
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Avenir Medium
+NameArray:0,Mac,4,Avenir Medium
+NameArray:0,Win,1,Avenir Medium
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-MediumOblique
+FamilyName:Avenir
+StyleName:Medium Oblique
+FullName:Avenir Medium Oblique
+MenuName:Avenir Medium
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:2836
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:500
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,18,Avenir Medium Oblique
+NameArray:0,Mac,4,Avenir Medium Oblique
+NameArray:0,Win,1,Avenir Medium
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Oblique
+FamilyName:Avenir
+StyleName:Oblique
+FullName:Avenir Oblique
+MenuName:Avenir
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:3152
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:400
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,18,Avenir Oblique
+NameArray:0,Mac,4,Avenir Oblique
+NameArray:0,Win,1,Avenir
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Roman
+FamilyName:Avenir
+StyleName:Roman
+FullName:Avenir Roman
+MenuName:Avenir
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Avenir.ttc
+TTCOffset:3468
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:1733486633
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Avenir Roman
+NameArray:0,Mac,4,Avenir Roman
+NameArray:0,Win,1,Avenir
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Aeonik-Medium
+FamilyName:Aeonik
+StyleName:Medium
+FullName:Aeonik Medium
+MenuName:Aeonik Medium
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\Aeonik-Medium.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:122080
+FileModTime:1733486633
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Aeonik Medium
+NameArray:0,Win,1,Aeonik Medium
+NameArray:0,Win,16,Aeonik
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:HelveticaLTStd-Light
+FamilyName:Helvetica LT Std
+StyleName:Light
+FullName:Helvetica LT Std Light
+MenuName:Helvetica LT Std Light
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Kevin\Documents\portfoli\Empaquetado_Kevin\Empaquetado_Kevin\Document fonts\HelveticaLTStdLight.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:27844
+FileModTime:1733486633
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Helvetica LT Std Light
+NameArray:0,Win,1,Helvetica LT Std Light
+NameArray:0,Win,16,Helvetica LT Std
+%EndFont
+

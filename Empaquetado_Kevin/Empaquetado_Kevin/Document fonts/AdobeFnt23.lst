@@ -1,0 +1,389 @@
+%!Adobe-FontList 1.23
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/AdobeFnt23.lst
+FileLength:8369
+FileModTime:755179221
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Aeonik-Medium
+FamilyName:Aeonik
+StyleName:Medium
+MenuName:Aeonik Medium
+StyleBits:0
+WeightClass:500
+WidthClass:5
+AngleClass:0
+FullName:Aeonik Medium
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Aeonik-Medium.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:122080
+FileModTime:700074540
+NameArray:0,Mac,4,Aeonik Medium
+NameArray:0,Win,1,Aeonik Medium
+NameArray:0,Win,16,Aeonik
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:HelveticaLTStd-Light
+FamilyName:Helvetica LT Std
+StyleName:Light
+MenuName:Helvetica LT Std Light
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Helvetica LT Std Light
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/HelveticaLTStdLight.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:27844
+FileModTime:659200440
+NameArray:0,Mac,4,Helvetica LT Std Light
+NameArray:0,Win,1,Helvetica LT Std Light
+NameArray:0,Win,16,Helvetica LT Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Black
+FamilyName:Avenir
+StyleName:Black
+MenuName:Avenir Black
+StyleBits:2
+WeightClass:800
+WidthClass:5
+AngleClass:0
+FullName:Avenir Black
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:704
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Black
+NameArray:0,Mac,4,Avenir Black
+NameArray:0,Win,1,Avenir Black
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-BlackOblique
+FamilyName:Avenir
+StyleName:Black Oblique
+MenuName:Avenir Black Oblique
+StyleBits:3
+WeightClass:800
+WidthClass:5
+AngleClass:1
+FullName:Avenir Black Oblique
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:1004
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Black Oblique
+NameArray:0,Mac,4,Avenir Black Oblique
+NameArray:0,Win,1,Avenir Black Oblique
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Book
+FamilyName:Avenir
+StyleName:Book
+MenuName:Avenir Book
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Avenir Book
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:72
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Book
+NameArray:0,Mac,4,Avenir Book
+NameArray:0,Win,1,Avenir Book
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-BookOblique
+FamilyName:Avenir
+StyleName:Book Oblique
+MenuName:Avenir Book
+StyleBits:1
+WeightClass:400
+WidthClass:5
+AngleClass:1
+FullName:Avenir Book Oblique
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:388
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Book Oblique
+NameArray:0,Mac,4,Avenir Book Oblique
+NameArray:0,Win,1,Avenir Book
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Heavy
+FamilyName:Avenir
+StyleName:Heavy
+MenuName:Avenir Heavy
+StyleBits:2
+WeightClass:900
+WidthClass:5
+AngleClass:0
+FullName:Avenir Heavy
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:1304
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Heavy
+NameArray:0,Mac,4,Avenir Heavy
+NameArray:0,Win,1,Avenir Heavy
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-HeavyOblique
+FamilyName:Avenir
+StyleName:Heavy Oblique
+MenuName:Avenir Heavy
+StyleBits:3
+WeightClass:900
+WidthClass:5
+AngleClass:1
+FullName:Avenir Heavy Oblique
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:1588
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Heavy Oblique
+NameArray:0,Mac,4,Avenir Heavy Oblique
+NameArray:0,Win,1,Avenir Heavy
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Light
+FamilyName:Avenir
+StyleName:Light
+MenuName:Avenir Light
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Avenir Light
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:1904
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Light
+NameArray:0,Mac,4,Avenir Light
+NameArray:0,Win,1,Avenir Light
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-LightOblique
+FamilyName:Avenir
+StyleName:Light Oblique
+MenuName:Avenir Light
+StyleBits:1
+WeightClass:300
+WidthClass:5
+AngleClass:1
+FullName:Avenir Light Oblique
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:2220
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Light Oblique
+NameArray:0,Mac,4,Avenir Light Oblique
+NameArray:0,Win,1,Avenir Light
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Medium
+FamilyName:Avenir
+StyleName:Medium
+MenuName:Avenir Medium
+StyleBits:0
+WeightClass:500
+WidthClass:5
+AngleClass:0
+FullName:Avenir Medium
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:2536
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Medium
+NameArray:0,Mac,4,Avenir Medium
+NameArray:0,Win,1,Avenir Medium
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-MediumOblique
+FamilyName:Avenir
+StyleName:Medium Oblique
+MenuName:Avenir Medium
+StyleBits:1
+WeightClass:500
+WidthClass:5
+AngleClass:1
+FullName:Avenir Medium Oblique
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:2836
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Medium Oblique
+NameArray:0,Mac,4,Avenir Medium Oblique
+NameArray:0,Win,1,Avenir Medium
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Oblique
+FamilyName:Avenir
+StyleName:Oblique
+MenuName:Avenir
+StyleBits:1
+WeightClass:400
+WidthClass:5
+AngleClass:1
+FullName:Avenir Oblique
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:3152
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Oblique
+NameArray:0,Mac,4,Avenir Oblique
+NameArray:0,Win,1,Avenir
+NameArray:0,Win,16,Avenir
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Avenir-Roman
+FamilyName:Avenir
+StyleName:Roman
+MenuName:Avenir
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Avenir Roman
+WritingScript:Roman
+OutlineFileName:/Users/marrilyruiz/Downloads/Empaquetado_Kevin/Document fonts/Avenir.ttc
+TTCOffset:3468
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:1639536
+FileModTime:656620479
+NameArray:0,Mac,18,Avenir Roman
+NameArray:0,Mac,4,Avenir Roman
+NameArray:0,Win,1,Avenir
+NameArray:0,Win,16,Avenir
+%EndFont
+
