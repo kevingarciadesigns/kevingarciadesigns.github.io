@@ -273,4 +273,51 @@ h2 {
 /* Reutilizamos los estilos de project-item para mantener la coherencia */
 .experience .project-item {
     background: var(--background-color);
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background: var(--background-color);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 12px;
+    background: var(--background-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    color: var(--accent-color);
+}
+
+.contact-link i {
+    font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+    .contact-link {
+        width: 100%;
+        justify-content: center;
+    }
 } 
