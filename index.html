@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin García - Diseño de Producto</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Kevin García</a>
+            <ul class="nav-links">
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Diseño de Producto</h1>
+            <p class="subtitle">Creando experiencias significativas a través del diseño</p>
+        </div>
+    </header>
+
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <h2>Proyectos Destacados</h2>
+            <div class="project-grid">
+                <!-- Project items will be populated dynamically with JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="about">
+        <div class="container">
+            <h2>Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Soy un diseñador de producto apasionado por crear soluciones innovadoras y centradas en el usuario.</p>
+                    <a href="CV Kevin García.pdf" class="btn" target="_blank">Ver CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="contact-content">
+                <form id="contact-form">
+                    <input type="email" placeholder="Tu email" required>
+                    <textarea placeholder="Tu mensaje" required></textarea>
+                    <button type="submit" class="btn">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Kevin García. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/projects-data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
