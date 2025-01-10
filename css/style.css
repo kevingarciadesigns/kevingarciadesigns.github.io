@@ -107,16 +107,43 @@ body {
     overflow: hidden;
     border-radius: 12px;
     transition: transform 0.3s ease;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .project-item:hover {
     transform: scale(1.02);
 }
 
+.project-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .project-item img {
     width: 100%;
     height: auto;
     object-fit: cover;
+    display: block;
+}
+
+.project-info {
+    padding: 20px;
+    background: #fff;
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.project-info p {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin: 0;
+    line-height: 1.4;
 }
 
 /* About Section */
