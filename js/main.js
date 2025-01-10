@@ -6,7 +6,7 @@ function populateProjects() {
         const projectElement = document.createElement('div');
         projectElement.className = 'project-item';
         projectElement.innerHTML = `
-            <a href="project-template.html?id=${project.id}">
+            <a href="project-template.html?id=${project.id}&type=project">
                 <img src="${project.mainImage}" alt="${project.title}" loading="lazy">
                 <div class="project-info">
                     <h3>${project.title}</h3>
@@ -15,6 +15,26 @@ function populateProjects() {
             </a>
         `;
         projectGrid.appendChild(projectElement);
+    });
+}
+
+// Populate experience grid
+function populateExperience() {
+    const experienceGrid = document.querySelector('.experience-grid');
+    
+    experienceData.forEach(exp => {
+        const expElement = document.createElement('div');
+        expElement.className = 'project-item'; // Reutilizamos los estilos de project-item
+        expElement.innerHTML = `
+            <a href="project-template.html?id=${exp.id}&type=experience">
+                <img src="${exp.mainImage}" alt="${exp.title}" loading="lazy">
+                <div class="project-info">
+                    <h3>${exp.title}</h3>
+                    <p>${exp.shortDescription}</p>
+                </div>
+            </a>
+        `;
+        experienceGrid.appendChild(expElement);
     });
 }
 
@@ -70,4 +90,5 @@ window.addEventListener('scroll', () => {
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     populateProjects();
+    populateExperience();
 }); 

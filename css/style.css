@@ -2,7 +2,7 @@
     --primary-color: #000;
     --secondary-color: #86868b;
     --background-color: #fff;
-    --accent-color: #0071e3;
+    --accent-color: #009999;
     --spacing-unit: 8px;
 }
 
@@ -149,7 +149,7 @@ body {
 /* About Section */
 .about {
     padding: calc(var(--spacing-unit) * 12) 0;
-    background-color: #f5f5f7;
+    background-color: var(--background-color);
 }
 
 .about-content {
@@ -166,6 +166,7 @@ body {
 /* Contact Section */
 .contact {
     padding: calc(var(--spacing-unit) * 12) 0;
+    background-color: #f5f5f7;
 }
 
 .contact-form {
@@ -180,6 +181,7 @@ input, textarea {
     border: 1px solid #d2d2d7;
     border-radius: 8px;
     font-family: inherit;
+    background-color: var(--background-color);
 }
 
 textarea {
@@ -197,11 +199,29 @@ textarea {
     font-weight: 500;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #0077ed;
+    background-color: #007a7a;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.button-group {
+    display: flex;
+    gap: calc(var(--spacing-unit) * 2);
+    margin-top: calc(var(--spacing-unit) * 3);
 }
 
 /* Animations */
@@ -236,4 +256,21 @@ h2 {
     font-weight: 600;
     margin-bottom: calc(var(--spacing-unit) * 4);
     text-align: center;
+}
+
+.experience {
+    padding: calc(var(--spacing-unit) * 12) 0;
+    background-color: #f5f5f7;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(var(--spacing-unit) * 3);
+    margin-top: calc(var(--spacing-unit) * 4);
+}
+
+/* Reutilizamos los estilos de project-item para mantener la coherencia */
+.experience .project-item {
+    background: var(--background-color);
 } 

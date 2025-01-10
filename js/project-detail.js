@@ -1,34 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get project ID from URL
+    // Get parameters from URL
     const urlParams = new URLSearchParams(window.location.search);
-    const projectId = urlParams.get('id');
+    const id = urlParams.get('id');
+    const type = urlParams.get('type');
 
-    if (!projectId) {
+    if (!id || !type) {
         window.location.href = 'index.html';
         return;
     }
 
-    const project = getProjectById(projectId);
+    // Get the item based on type
+    const item = type === 'project' ? getProjectById(id) : getExperienceById(id);
     
-    if (!project) {
+    if (!item) {
         window.location.href = 'index.html';
         return;
     }
 
     // Update page title
-    document.title = `${project.title} - Kevin García`;
+    document.title = `${item.title} - Kevin García`;
 
-    // Populate project information
-    document.getElementById('project-title').textContent = project.title;
-    document.getElementById('project-description').textContent = project.shortDescription;
-    document.getElementById('project-full-description').innerHTML = project.fullDescription;
+    // Populate item information
+    document.getElementById('project-title').textContent = item.title;
+    document.getElementById('project-description').textContent = item.shortDescription;
+    document.getElementById('project-full-description').innerHTML = item.fullDescription;
 
-    // Populate project details
+    // Populate details
     const detailsList = document.getElementById('project-details');
     const details = [
-        `Año: ${project.year}`,
-        'Herramientas: ' + project.tools.join(', '),
-        ...project.details
+        `Año: ${item.year}`,
+        'Herramientas: ' + item.tools.join(', '),
+        ...item.details
     ];
 
     details.forEach(detail => {
@@ -40,37 +42,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // Populate images
     const imagesContainer = document.querySelector('.project-images');
     const mainImage = document.createElement('img');
-    mainImage.src = project.mainImage;
-    mainImage.alt = project.title;
+    mainImage.src = item.mainImage;
+    mainImage.alt = item.title;
     imagesContainer.appendChild(mainImage);
 
-    project.additionalImages.forEach(imageSrc => {
-        const img = document.createElement('img');
-        img.src = imageSrc;
-        img.alt = `${project.title} - Imagen adicional`;
-        img.loading = 'lazy';
-        imagesContainer.appendChild(img);
-    });
+    if (item.additionalImages && item.additionalImages.length > 0) {
+        item.additionalImages.forEach(imageSrc => {
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = `${item.title} - Imagen adicional`;
+            img.loading = 'lazy';
+            imagesContainer.appendChild(img);
+        });
+    }
 
     // Setup navigation
-    const prevProject = getPreviousProject(projectId);
-    const nextProject = getNextProject(projectId);
+    const prevItem = type === 'project' ? getPreviousProject(id) : getPreviousExperience(id);
+    const nextItem = type === 'project' ? getNextProject(id) : getNextExperience(id);
 
     const navPrevious = document.querySelector('.nav-previous');
     const navNext = document.querySelector('.nav-next');
 
-    if (prevProject) {
+    if (prevItem) {
         navPrevious.innerHTML = `
-            <a href="project-template.html?id=${prevProject.id}">
-                ${prevProject.title}
+            <a href="project-template.html?id=${prevItem.id}&type=${type}">
+                ${prevItem.title}
             </a>
         `;
     }
 
-    if (nextProject) {
+    if (nextItem) {
         navNext.innerHTML = `
-            <a href="project-template.html?id=${nextProject.id}">
-                ${nextProject.title}
+            <a href="project-template.html?id=${nextItem.id}&type=${type}">
+                ${nextItem.title}
             </a>
         `;
     }

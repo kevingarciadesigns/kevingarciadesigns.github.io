@@ -81,6 +81,49 @@ const projectsData = [
     }
 ];
 
+const experienceData = [
+    {
+        id: 1,
+        title: "Técnicas de Renderizado",
+        shortDescription: "Visualización fotorrealista de productos",
+        fullDescription: `
+            <p>Estudio detallado de técnicas avanzadas de renderizado para la presentación de productos.</p>
+            <p>Desarrollo de materiales personalizados, iluminación y composición para lograr resultados fotorrealistas.</p>
+        `,
+        mainImage: "6.png",
+        additionalImages: [],
+        details: [
+            "Configuración de materiales PBR",
+            "Técnicas de iluminación de estudio",
+            "Post-procesado y composición",
+            "Optimización de renders",
+            "Flujo de trabajo eficiente"
+        ],
+        year: "2023",
+        tools: ["KeyShot", "HDR Light Studio", "Adobe Photoshop"]
+    },
+    {
+        id: 2,
+        title: "Prototipado y Pruebas",
+        shortDescription: "Desarrollo y validación de prototipos",
+        fullDescription: `
+            <p>Metodología completa para el desarrollo y validación de prototipos funcionales.</p>
+            <p>Implementación de técnicas de prototipado rápido y pruebas de usuario para validar conceptos.</p>
+        `,
+        mainImage: "11.jpg",
+        additionalImages: ["12.jpg"],
+        details: [
+            "Prototipado rápido con impresión 3D",
+            "Pruebas de usabilidad",
+            "Iteración y refinamiento",
+            "Documentación del proceso",
+            "Análisis de resultados"
+        ],
+        year: "2024",
+        tools: ["Impresión 3D", "Arduino", "Herramientas de prototipado"]
+    }
+];
+
 // Función para obtener un proyecto por ID
 function getProjectById(id) {
     return projectsData.find(project => project.id === parseInt(id));
@@ -96,4 +139,19 @@ function getNextProject(currentId) {
 function getPreviousProject(currentId) {
     const currentIndex = projectsData.findIndex(project => project.id === parseInt(currentId));
     return projectsData[currentIndex - 1] || null;
+}
+
+// Nuevas funciones para experiencia
+function getExperienceById(id) {
+    return experienceData.find(exp => exp.id === parseInt(id));
+}
+
+function getNextExperience(currentId) {
+    const currentIndex = experienceData.findIndex(exp => exp.id === parseInt(currentId));
+    return experienceData[currentIndex + 1] || null;
+}
+
+function getPreviousExperience(currentId) {
+    const currentIndex = experienceData.findIndex(exp => exp.id === parseInt(currentId));
+    return experienceData[currentIndex - 1] || null;
 } 
