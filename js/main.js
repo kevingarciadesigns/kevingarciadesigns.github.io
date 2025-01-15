@@ -1,21 +1,55 @@
-// Populate projects grid
+let currentProjectIndex = 0;
+
+// Populate projects carousel
 function populateProjects() {
-    const projectGrid = document.querySelector('.project-grid');
+    const carouselContainer = document.querySelector('.carousel-container');
     
-    projectsData.forEach(project => {
+    projectsData.forEach((project, index) => {
         const projectElement = document.createElement('div');
-        projectElement.className = 'project-item';
+        projectElement.className = `carousel-item ${index === 0 ? 'active' : index === 1 ? 'next' : index === projectsData.length - 1 ? 'prev' : ''}`;
         projectElement.innerHTML = `
             <a href="project-template.html?id=${project.id}&type=project">
                 <img src="${project.mainImage}" alt="${project.title}" loading="lazy">
-                <div class="project-info">
+                <div class="carousel-project-info">
                     <h3>${project.title}</h3>
                     <p>${project.shortDescription}</p>
                 </div>
             </a>
         `;
-        projectGrid.appendChild(projectElement);
+        carouselContainer.appendChild(projectElement);
     });
+
+    // Add event listeners for navigation buttons
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+
+    prevButton.addEventListener('click', navigateCarousel.bind(null, 'prev'));
+    nextButton.addEventListener('click', navigateCarousel.bind(null, 'next'));
+}
+
+function navigateCarousel(direction) {
+    const items = document.querySelectorAll('.carousel-item');
+    
+    // Remove all classes first
+    items.forEach(item => {
+        item.classList.remove('active', 'prev', 'next');
+    });
+
+    // Update current index
+    if (direction === 'next') {
+        currentProjectIndex = (currentProjectIndex + 1) % items.length;
+    } else {
+        currentProjectIndex = (currentProjectIndex - 1 + items.length) % items.length;
+    }
+
+    // Calculate prev and next indices
+    const prevIndex = (currentProjectIndex - 1 + items.length) % items.length;
+    const nextIndex = (currentProjectIndex + 1) % items.length;
+
+    // Apply new classes
+    items[prevIndex].classList.add('prev');
+    items[currentProjectIndex].classList.add('active');
+    items[nextIndex].classList.add('next');
 }
 
 // Populate experience grid
