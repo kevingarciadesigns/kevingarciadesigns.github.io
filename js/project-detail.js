@@ -95,22 +95,24 @@ document.addEventListener('DOMContentLoaded', () => {
             // Crear botón de mute
             const muteButton = document.createElement('button');
             muteButton.className = 'mute-button';
-            muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            
-            // Función para actualizar el icono
-            const updateMuteIcon = () => {
-                muteButton.innerHTML = video.muted ? 
-                    '<i class="fas fa-volume-mute"></i>' : 
-                    '<i class="fas fa-volume-up"></i>';
-            };
+            const muteImage = document.createElement('img');
+            muteImage.src = 'images/P6/music.png';
+            muteImage.alt = 'Toggle sound';
+            muteImage.style.width = '20px';
+            muteImage.style.height = '20px';
+            muteImage.style.filter = 'brightness(0) invert(1)';
+            muteImage.className = 'pulsing'; // Inicialmente pulsando porque el video empieza muteado
+            muteButton.appendChild(muteImage);
             
             // Evento click para mute/unmute
             muteButton.addEventListener('click', () => {
                 video.muted = !video.muted;
                 if (!video.muted) {
                     video.volume = 0.3;
+                    muteImage.classList.remove('pulsing');
+                } else {
+                    muteImage.classList.add('pulsing');
                 }
-                updateMuteIcon();
             });
             
             videoContainer.appendChild(video);
@@ -258,19 +260,24 @@ function loadProjectDetails(projectId) {
             // Crear botón de mute
             const muteButton = document.createElement('button');
             muteButton.className = 'mute-button';
-            muteButton.innerHTML = '<i class="fas fa-volume-up"></i>';
-            
-            // Función para actualizar el icono
-            const updateMuteIcon = () => {
-                muteButton.innerHTML = video.muted ? 
-                    '<i class="fas fa-volume-mute"></i>' : 
-                    '<i class="fas fa-volume-up"></i>';
-            };
+            const muteImage = document.createElement('img');
+            muteImage.src = 'images/P6/music.png';
+            muteImage.alt = 'Toggle sound';
+            muteImage.style.width = '20px';
+            muteImage.style.height = '20px';
+            muteImage.style.filter = 'brightness(0) invert(1)';
+            muteImage.className = 'pulsing'; // Inicialmente pulsando porque el video empieza muteado
+            muteButton.appendChild(muteImage);
             
             // Evento click para mute/unmute
             muteButton.addEventListener('click', () => {
                 video.muted = !video.muted;
-                updateMuteIcon();
+                if (!video.muted) {
+                    video.volume = 0.3;
+                    muteImage.classList.remove('pulsing');
+                } else {
+                    muteImage.classList.add('pulsing');
+                }
             });
 
             // Forzar la carga del video
