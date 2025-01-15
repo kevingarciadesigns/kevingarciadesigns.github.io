@@ -54,72 +54,104 @@ document.addEventListener('DOMContentLoaded', () => {
         const videoContainer = document.createElement('div');
         videoContainer.className = 'video-container';
         
-        item.videos.forEach(videoSrc => {
-            console.log('Cargando video:', videoSrc);
-            const video = document.createElement('video');
+        // Comportamiento diferente para el proyecto Flora
+        if (item.title === "Flora") {
+            videoContainer.style.display = 'grid';
+            videoContainer.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
+            videoContainer.style.gap = '20px';
+            videoContainer.style.marginTop = '40px';
             
-            // Eventos para depuración
-            video.addEventListener('loadeddata', () => {
-                console.log('Video cargado exitosamente:', videoSrc);
+            item.videos.forEach(videoSrc => {
+                const video = document.createElement('video');
+                video.autoplay = true;
+                video.loop = true;
+                video.playsInline = true;
+                video.muted = true;
+                video.controls = false;
+                video.style.width = '100%';
+                video.style.height = 'auto';
+                video.style.display = 'block';
+                video.style.borderRadius = '12px';
+                
+                const source = document.createElement('source');
+                source.src = videoSrc;
+                source.type = 'video/mp4';
+                video.appendChild(source);
+                video.load();
+                
+                video.addEventListener('loadedmetadata', () => {
+                    video.play().catch(e => console.error('Error al reproducir:', e));
+                });
+                
+                videoContainer.appendChild(video);
             });
             
-            video.addEventListener('error', (e) => {
-                console.error('Error cargando video:', videoSrc, e.target.error);
-            });
+            // Añadir los videos al final del contenedor de imágenes
+            imagesContainer.appendChild(videoContainer);
+        } else {
+            // Comportamiento original para Nudge y otros proyectos
+            item.videos.forEach(videoSrc => {
+                console.log('Cargando video:', videoSrc);
+                const video = document.createElement('video');
+                
+                video.addEventListener('loadeddata', () => {
+                    console.log('Video cargado exitosamente:', videoSrc);
+                });
+                
+                video.addEventListener('error', (e) => {
+                    console.error('Error cargando video:', videoSrc, e.target.error);
+                });
 
-            // Configuración del video
-            video.autoplay = true;
-            video.loop = true;
-            video.playsInline = true;
-            video.muted = true; // Inicialmente muteado para asegurar el autoplay
-            video.controls = false;
-            video.volume = 0.3;
-            video.preload = 'auto';
-            video.style.width = '100%';
-            video.style.height = 'auto';
-            video.style.display = 'block';
-            
-            const source = document.createElement('source');
-            source.src = videoSrc;
-            source.type = 'video/mp4';
-            video.appendChild(source);
-
-            // Forzar la carga del video
-            video.load();
-            
-            // Intentar reproducir el video después de cargar
-            video.addEventListener('loadedmetadata', () => {
-                video.play().catch(e => console.error('Error al reproducir:', e));
+                video.autoplay = true;
+                video.loop = true;
+                video.playsInline = true;
+                video.muted = true;
+                video.controls = false;
+                video.volume = 0.3;
+                video.preload = 'auto';
+                video.style.width = '100%';
+                video.style.height = 'auto';
+                video.style.display = 'block';
+                
+                const source = document.createElement('source');
+                source.src = videoSrc;
+                source.type = 'video/mp4';
+                video.appendChild(source);
+                video.load();
+                
+                video.addEventListener('loadedmetadata', () => {
+                    video.play().catch(e => console.error('Error al reproducir:', e));
+                });
+                
+                // Crear botón de mute solo para Nudge y otros proyectos
+                const muteButton = document.createElement('button');
+                muteButton.className = 'mute-button';
+                const muteImage = document.createElement('img');
+                muteImage.src = 'images/P6/music.png';
+                muteImage.alt = 'Toggle sound';
+                muteImage.style.width = '20px';
+                muteImage.style.height = '20px';
+                muteImage.style.filter = 'brightness(0) invert(1)';
+                muteImage.className = 'pulsing';
+                muteButton.appendChild(muteImage);
+                
+                muteButton.addEventListener('click', () => {
+                    video.muted = !video.muted;
+                    if (!video.muted) {
+                        video.volume = 0.3;
+                        muteImage.classList.remove('pulsing');
+                    } else {
+                        muteImage.classList.add('pulsing');
+                    }
+                });
+                
+                videoContainer.appendChild(video);
+                videoContainer.appendChild(muteButton);
             });
             
-            // Crear botón de mute
-            const muteButton = document.createElement('button');
-            muteButton.className = 'mute-button';
-            const muteImage = document.createElement('img');
-            muteImage.src = 'images/P6/music.png';
-            muteImage.alt = 'Toggle sound';
-            muteImage.style.width = '20px';
-            muteImage.style.height = '20px';
-            muteImage.style.filter = 'brightness(0) invert(1)';
-            muteImage.className = 'pulsing'; // Inicialmente pulsando porque el video empieza muteado
-            muteButton.appendChild(muteImage);
-            
-            // Evento click para mute/unmute
-            muteButton.addEventListener('click', () => {
-                video.muted = !video.muted;
-                if (!video.muted) {
-                    video.volume = 0.3;
-                    muteImage.classList.remove('pulsing');
-                } else {
-                    muteImage.classList.add('pulsing');
-                }
-            });
-            
-            videoContainer.appendChild(video);
-            videoContainer.appendChild(muteButton);
-        });
-        
-        imagesContainer.appendChild(videoContainer);
+            // Insertar después de la imagen principal para Nudge
+            imagesContainer.insertBefore(videoContainer, imagesContainer.children[1]);
+        }
     }
 
     // Imágenes adicionales después del video
