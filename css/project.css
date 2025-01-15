@@ -139,4 +139,17 @@
     .video-container video {
         max-width: calc(50% - 10px);
     }
+}
+
+.animated-sequence {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.animated-sequence img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease-in-out;
 } 

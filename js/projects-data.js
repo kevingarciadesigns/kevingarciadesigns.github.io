@@ -27,7 +27,16 @@ const projectsData = [
             <p>Una lámpara inteligente y ambiental diseñada en colaboración con <a href="https://bover.es/us/es/" target="_blank">Bover</a>, que buscaba capturar la esencia del espíritu mediterráneo combinado con innovación tecnológica. Esta lámpara multifuncional no solo ofrece iluminación de ambiente sino también de acento, adaptándose a diversas necesidades y momentos. Fabricada con materiales que evocan la calidez y naturalidad del Mediterráneo, Flora se destaca por su capacidad de crear atmósferas envolventes y acogedoras en cualquier espacio, a la vez que integra tecnología de vanguardia para un control intuitivo y versátil de la iluminación.</p>
         `,
         mainImage: "images/P2/10.1-optimized.png",
-        additionalImages: ["images/P2/7-optimized.png", "images/P2/8-optimized.png", "images/P2/9-optimized.png", "images/P2/10-optimized.png"],
+        additionalImages: ["images/P2/7-optimized.png"],
+        animatedSequence: {
+            images: [
+                "images/P2/8-optimized.png",
+                "images/P2/9-optimized.png",
+                "images/P2/10-optimized.png"
+            ],
+            interval: 1000 // intervalo en milisegundos entre cada imagen
+        },
+        videos: ["images/P2/comp 1.mp4", "images/P2/secuencia 01.mp4"],
         details: [
             "Investigación de materiales sostenibles",
             "Diseño para manufactura",
