@@ -41,11 +41,86 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Populate images
     const imagesContainer = document.querySelector('.project-images');
+    
+    // Imagen principal
     const mainImage = document.createElement('img');
     mainImage.src = item.mainImage;
     mainImage.alt = item.title;
     imagesContainer.appendChild(mainImage);
 
+    // Videos - Insertamos los videos justo después de la imagen principal
+    if (item.videos && item.videos.length > 0) {
+        console.log('Intentando cargar videos:', item.videos);
+        const videoContainer = document.createElement('div');
+        videoContainer.className = 'video-container';
+        
+        item.videos.forEach(videoSrc => {
+            console.log('Cargando video:', videoSrc);
+            const video = document.createElement('video');
+            
+            // Eventos para depuración
+            video.addEventListener('loadeddata', () => {
+                console.log('Video cargado exitosamente:', videoSrc);
+            });
+            
+            video.addEventListener('error', (e) => {
+                console.error('Error cargando video:', videoSrc, e.target.error);
+            });
+
+            // Configuración del video
+            video.autoplay = true;
+            video.loop = true;
+            video.playsInline = true;
+            video.muted = true; // Inicialmente muteado para asegurar el autoplay
+            video.controls = false;
+            video.volume = 0.3;
+            video.preload = 'auto';
+            video.style.width = '100%';
+            video.style.height = 'auto';
+            video.style.display = 'block';
+            
+            const source = document.createElement('source');
+            source.src = videoSrc;
+            source.type = 'video/mp4';
+            video.appendChild(source);
+
+            // Forzar la carga del video
+            video.load();
+            
+            // Intentar reproducir el video después de cargar
+            video.addEventListener('loadedmetadata', () => {
+                video.play().catch(e => console.error('Error al reproducir:', e));
+            });
+            
+            // Crear botón de mute
+            const muteButton = document.createElement('button');
+            muteButton.className = 'mute-button';
+            muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            
+            // Función para actualizar el icono
+            const updateMuteIcon = () => {
+                muteButton.innerHTML = video.muted ? 
+                    '<i class="fas fa-volume-mute"></i>' : 
+                    '<i class="fas fa-volume-up"></i>';
+            };
+            
+            // Evento click para mute/unmute
+            muteButton.addEventListener('click', () => {
+                video.muted = !video.muted;
+                if (!video.muted) {
+                    video.volume = 0.3;
+                }
+                updateMuteIcon();
+            });
+            
+            videoContainer.appendChild(video);
+            videoContainer.appendChild(muteButton);
+        });
+        
+        imagesContainer.appendChild(videoContainer);
+    }
+
+    // Imágenes adicionales después del video
     if (item.additionalImages && item.additionalImages.length > 0) {
         item.additionalImages.forEach(imageSrc => {
             const img = document.createElement('img');
@@ -75,31 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex = (currentIndex + 1) % item.animatedSequence.images.length;
             img.src = item.animatedSequence.images[currentIndex];
         }, item.animatedSequence.interval);
-    }
-
-    // Videos
-    if (item.videos && item.videos.length > 0) {
-        const videoContainer = document.createElement('div');
-        videoContainer.className = 'video-container';
-        
-        item.videos.forEach(videoSrc => {
-            const video = document.createElement('video');
-            video.autoplay = true;
-            video.loop = true;
-            video.muted = true; // Necesario para autoplay
-            video.playsInline = true; // Mejor soporte en móviles
-            const source = document.createElement('source');
-            source.src = videoSrc;
-            source.type = 'video/mp4';
-            video.appendChild(source);
-            
-            const fallbackText = document.createTextNode('Tu navegador no soporta el elemento video.');
-            video.appendChild(fallbackText);
-            
-            videoContainer.appendChild(video);
-        });
-        
-        imagesContainer.appendChild(videoContainer);
     }
 
     // Setup navigation
@@ -183,19 +233,51 @@ function loadProjectDetails(projectId) {
         
         project.videos.forEach(videoSrc => {
             const video = document.createElement('video');
+            
+            // Eventos para depuración
+            video.addEventListener('loadeddata', () => {
+                console.log('Video loaded successfully');
+            });
+            
+            video.addEventListener('error', (e) => {
+                console.error('Error loading video:', e);
+            });
+
+            // Configuración del video
             video.autoplay = true;
             video.loop = true;
-            video.muted = true; // Necesario para autoplay
-            video.playsInline = true; // Mejor soporte en móviles
+            video.playsInline = true;
+            video.controls = false;
+            video.volume = 0.3;
+            
             const source = document.createElement('source');
-            source.src = videoSrc;
+            source.src = encodeURI(videoSrc); // Codificar la URL para manejar espacios
             source.type = 'video/mp4';
             video.appendChild(source);
             
-            const fallbackText = document.createTextNode('Tu navegador no soporta el elemento video.');
-            video.appendChild(fallbackText);
+            // Crear botón de mute
+            const muteButton = document.createElement('button');
+            muteButton.className = 'mute-button';
+            muteButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+            
+            // Función para actualizar el icono
+            const updateMuteIcon = () => {
+                muteButton.innerHTML = video.muted ? 
+                    '<i class="fas fa-volume-mute"></i>' : 
+                    '<i class="fas fa-volume-up"></i>';
+            };
+            
+            // Evento click para mute/unmute
+            muteButton.addEventListener('click', () => {
+                video.muted = !video.muted;
+                updateMuteIcon();
+            });
+
+            // Forzar la carga del video
+            video.load();
             
             videoContainer.appendChild(video);
+            videoContainer.appendChild(muteButton);
         });
         
         projectImagesContainer.appendChild(videoContainer);

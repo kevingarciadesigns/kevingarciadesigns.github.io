@@ -7,8 +7,8 @@ const projectsData = [
             <p>Colaboración con <a href="https://www.balvi.com/es/" target="_blank">Balvi</a> para combinar funcionalidad y estética en entornos de cocina y oficina. Tras un detallado análisis de la demanda en su plataforma, se diseña este innovador artículo que imita una suculenta, desplegándose en posavasos funcionales y decorativos. Cada posavasos mantiene la estética de las suculentas, ofreciendo tanto practicidad como un elemento decorativo que realza cualquier espacio. Este diseño ejemplifica cómo la funcionalidad cotidiana puede convertirse en arte decorativo.</p>
             
         `,
-        mainImage: "images/P1/1-optimized.png",
-        additionalImages: ["images/P1/2-optimized.png", "images/P1/3-optimized.png", "images/P1/4-optimized.png"],
+        mainImage: "images/P1/1.1-optimized.png",
+        additionalImages: ["images/P1/1-optimized.png", "images/P1/2-optimized.png", "images/P1/3-optimized.png", "images/P1/4-optimized.png"],
         details: [
             "Investigación de usuario y análisis de mercado",
             "Diseño conceptual y sketching",
@@ -50,13 +50,44 @@ const projectsData = [
     },
     {
         id: 3,
-        title: "Prototipo Funcional",
+        title: "Nudge",
         shortDescription: "Del concepto a la realidad",
         fullDescription: `
-            <p>Desarrollo de un prototipo funcional que demuestra la viabilidad técnica y comercial del concepto.</p>
-            <p>El proyecto incluyó la selección de materiales, procesos de fabricación y pruebas de usuario.</p>
+            <p>Nudge es un sistema multiplataforma
+diseñado para acompañar a personas
+adultas con TDAH, u otras neurodivergencias,
+en su vida diaria para ayudarlas
+a gestionar sus actividades y reducir la
+dependencia de la medicación. Este sistema
+incluye una aplicación que puede
+utilizarse en diversos dispositivos electrónicos
+como teléfonos, ordenadores,
+portátiles, tabletas, etc. Además, cuenta
+con un dispositivo innovador en formato
+de wearable que se desarrolla en este
+proyecto.</p>
+<p>El dispositivo wearable Nudge se concibe
+como un compañero constante, que
+utiliza inteligencia artificial para proporcionar
+recordatorios personalizados,
+gestionar tareas y citas, y ofrecer apoyo
+en tiempo real. A lo largo del desarrollo
+de este proyecto, se han abordado varios
+desafíos específicos del TDAH, como el
+"time blindness" y la parálisis del TDAH,
+integrando soluciones tecnológicas
+avanzadas para mejorar la autonomía
+de los usuarios. Además, el diseño de
+Nudge considera la importancia de la
+estética y la personalización, evitando
+que el dispositivo tenga una apariencia
+médica y permitiendo que se integre de
+manera armoniosa en el estilo personal
+del usuario.</p>
+            
         `,
-        mainImage: "images/P3/3-optimized.png",
+        mainImage: "images/P6/01nudge.png",
+        videos: ["images/P6/videolargonudge.mp4"],
         additionalImages: ["images/P3/11-optimized.jpg", "images/P3/12-optimized.jpg"],
         details: [
             "Diseño mecánico detallado",
