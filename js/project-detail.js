@@ -151,6 +151,36 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Insertar después de la imagen principal para Nudge
             imagesContainer.insertBefore(videoContainer, imagesContainer.children[1]);
+            
+            // Añadir secuencia animada de 02nudge solo para el proyecto Nudge
+            if (item.title === "Nudge") {
+                const animContainer = document.createElement('div');
+                animContainer.className = 'animated-sequence';
+                const img = document.createElement('img');
+                img.alt = 'Nudge - Secuencia dinámica';
+                img.loading = 'lazy';
+                
+                // Array con las imágenes 02nudge
+                const images = [
+                    'images/P6/02nudge-1.png',
+                    'images/P6/02nudge-2.png',
+                    'images/P6/02nudge-4.png'
+                ];
+                
+                // Cargar la primera imagen
+                img.src = images[0];
+                animContainer.appendChild(img);
+                
+                // Insertar después del video
+                videoContainer.parentNode.insertBefore(animContainer, videoContainer.nextSibling);
+                
+                let currentIndex = 0;
+                // Iniciar la animación
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    img.src = images[currentIndex];
+                }, 1000); // Cambiar cada segundo
+            }
         }
     }
 

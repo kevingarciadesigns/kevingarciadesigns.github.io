@@ -66,38 +66,22 @@ portátiles, tabletas, etc. Además, cuenta
 con un dispositivo innovador en formato
 de wearable que se desarrolla en este
 proyecto.</p>
-<p>El dispositivo wearable Nudge se concibe
-como un compañero constante, que
-utiliza inteligencia artificial para proporcionar
-recordatorios personalizados,
-gestionar tareas y citas, y ofrecer apoyo
-en tiempo real. A lo largo del desarrollo
-de este proyecto, se han abordado varios
-desafíos específicos del TDAH, como el
-"time blindness" y la parálisis del TDAH,
-integrando soluciones tecnológicas
-avanzadas para mejorar la autonomía
-de los usuarios. Además, el diseño de
-Nudge considera la importancia de la
-estética y la personalización, evitando
-que el dispositivo tenga una apariencia
-médica y permitiendo que se integre de
-manera armoniosa en el estilo personal
-del usuario.</p>
+
             
         `,
         mainImage: "images/P6/01nudge.png",
         videos: ["images/P6/videolargonudge.mp4"],
-        additionalImages: ["images/P3/11-optimized.jpg", "images/P3/12-optimized.jpg"],
+        additionalImages: ["images/P6/02nudge-3.png", "images/P6/02nudge-5.png","images/P6/02nudge-6.png"],
         details: [
             "Diseño mecánico detallado",
             "Selección de materiales",
             "Prototipado rápido",
             "Pruebas de usuario",
-            "Documentación técnica"
+            "Documentación técnica",
+            "UX/UI"
         ],
         year: "2024",
-        tools: ["Fusion 360", "3D Printing", "Arduino"]
+        tools: ["SolidWorks", "3D Printing", "IA", "Forja"]
     },
     {
         id: 4,
