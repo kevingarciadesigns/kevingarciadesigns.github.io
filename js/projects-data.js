@@ -2,13 +2,13 @@ const projectsData = [
     {
         id: 1,
         title: "Suculenta",
-        shortDescription: "Diseño de producto innovador",
+        shortDescription: "Diseño estetico y funcional",
         fullDescription: `
-            <p>Este proyecto se centró en el desarrollo de un producto innovador que resuelve problemas cotidianos de manera elegante y eficiente.</p>
-            <p>El proceso incluyó extensiva investigación de usuario, prototipado iterativo y pruebas de usabilidad para garantizar una experiencia excepcional.</p>
+            <p>Colaboración con <a href="https://www.balvi.com/es/" target="_blank">Balvi</a> para combinar funcionalidad y estética en entornos de cocina y oficina. Tras un detallado análisis de la demanda en su plataforma, se diseña este innovador artículo que imita una suculenta, desplegándose en posavasos funcionales y decorativos. Cada posavasos mantiene la estética de las suculentas, ofreciendo tanto practicidad como un elemento decorativo que realza cualquier espacio. Este diseño ejemplifica cómo la funcionalidad cotidiana puede convertirse en arte decorativo.</p>
+            
         `,
-        mainImage: "images/1-optimized.png",
-        additionalImages: ["images/9-optimized.png", "images/10-optimized.png"],
+        mainImage: "images/P1/1-optimized.png",
+        additionalImages: ["images/P1/2-optimized.png", "images/P1/3-optimized.png", "images/P1/4-optimized.png"],
         details: [
             "Investigación de usuario y análisis de mercado",
             "Diseño conceptual y sketching",
@@ -17,27 +17,27 @@ const projectsData = [
             "Documentación técnica"
         ],
         year: "2023",
-        tools: ["Fusion 360", "Rhinoceros", "KeyShot"]
+        tools: ["SolidWorks", "Rhinoceros", "KeyShot", "Impresión 3D"]
     },
     {
         id: 2,
-        title: "Desarrollo de Concepto",
+        title: "Flora",
         shortDescription: "Exploración de nuevas posibilidades en diseño",
         fullDescription: `
-            <p>Un proyecto conceptual que explora las posibilidades del diseño industrial en el contexto de la sostenibilidad y la economía circular.</p>
-            <p>Se desarrollaron múltiples iteraciones y conceptos, culminando en una propuesta innovadora y viable.</p>
+            <p>Una lámpara inteligente y ambiental diseñada en colaboración con <a href="https://bover.es/us/es/" target="_blank">Bover</a>, que buscaba capturar la esencia del espíritu mediterráneo combinado con innovación tecnológica. Esta lámpara multifuncional no solo ofrece iluminación de ambiente sino también de acento, adaptándose a diversas necesidades y momentos. Fabricada con materiales que evocan la calidez y naturalidad del Mediterráneo, Flora se destaca por su capacidad de crear atmósferas envolventes y acogedoras en cualquier espacio, a la vez que integra tecnología de vanguardia para un control intuitivo y versátil de la iluminación.</p>
         `,
-        mainImage: "images/2-optimized.png",
-        additionalImages: ["images/7-optimized.png", "images/8-optimized.png"],
+        mainImage: "images/P2/10.1-optimized.png",
+        additionalImages: ["images/P2/7-optimized.png", "images/P2/8-optimized.png", "images/P2/9-optimized.png", "images/P2/10-optimized.png"],
         details: [
             "Investigación de materiales sostenibles",
             "Diseño para manufactura",
+            "Robótica y programación",
             "Análisis de ciclo de vida",
             "Renderizado y visualización",
             "Presentación del concepto"
         ],
         year: "2023",
-        tools: ["SolidWorks", "KeyShot", "Adobe CC"]
+        tools: ["SolidWorks", "KeyShot", "Adobe CC", "Arduino"]
     },
     {
         id: 3,
@@ -47,8 +47,8 @@ const projectsData = [
             <p>Desarrollo de un prototipo funcional que demuestra la viabilidad técnica y comercial del concepto.</p>
             <p>El proyecto incluyó la selección de materiales, procesos de fabricación y pruebas de usuario.</p>
         `,
-        mainImage: "images/3-optimized.png",
-        additionalImages: ["images/11-optimized.jpg", "images/12-optimized.jpg"],
+        mainImage: "images/P3/3-optimized.png",
+        additionalImages: ["images/P3/11-optimized.jpg", "images/P3/12-optimized.jpg"],
         details: [
             "Diseño mecánico detallado",
             "Selección de materiales",
@@ -67,8 +67,8 @@ const projectsData = [
             <p>Proyecto centrado en el diseño industrial de productos de consumo, con énfasis en la funcionalidad y la estética.</p>
             <p>Se aplicaron principios de diseño centrado en el usuario y fabricación sostenible.</p>
         `,
-        mainImage: "images/4-optimized.png",
-        additionalImages: ["images/5-optimized.png", "images/6-optimized.png"],
+        mainImage: "images/P4/4-optimized.png",
+        additionalImages: ["images/P4/5-optimized.png", "images/P4/6-optimized.png"],
         details: [
             "Diseño industrial avanzado",
             "Estudios ergonómicos",
@@ -90,7 +90,7 @@ const experienceData = [
             <p>Estudio detallado de técnicas avanzadas de renderizado para la presentación de productos.</p>
             <p>Desarrollo de materiales personalizados, iluminación y composición para lograr resultados fotorrealistas.</p>
         `,
-        mainImage: "images/6-optimized.png",
+        mainImage: "images/P5/6-optimized.png",
         additionalImages: [],
         details: [
             "Configuración de materiales PBR",
@@ -110,8 +110,8 @@ const experienceData = [
             <p>Metodología completa para el desarrollo y validación de prototipos funcionales.</p>
             <p>Implementación de técnicas de prototipado rápido y pruebas de usuario para validar conceptos.</p>
         `,
-        mainImage: "images/11-optimized.jpg",
-        additionalImages: ["images/12-optimized.jpg"],
+        mainImage: "images/P5/11-optimized.jpg",
+        additionalImages: ["images/P5/12-optimized.jpg"],
         details: [
             "Prototipado rápido con impresión 3D",
             "Pruebas de usabilidad",
