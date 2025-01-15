@@ -2,7 +2,7 @@ const projectsData = [
     {
         id: 1,
         title: "Suculenta",
-        shortDescription: "Diseño estetico y funcional",
+        shortDescription: "Diseño estético y funcional",
         fullDescription: `
             <p>Colaboración con <a href="https://www.balvi.com/es/" target="_blank">Balvi</a> para combinar funcionalidad y estética en entornos de cocina y oficina. Tras un detallado análisis de la demanda en su plataforma, se diseña este innovador artículo que imita una suculenta, desplegándose en posavasos funcionales y decorativos. Cada posavasos mantiene la estética de las suculentas, ofreciendo tanto practicidad como un elemento decorativo que realza cualquier espacio. Este diseño ejemplifica cómo la funcionalidad cotidiana puede convertirse en arte decorativo.</p>
             
@@ -114,8 +114,8 @@ const experienceData = [
             <p>Estudio detallado de técnicas avanzadas de renderizado para la presentación de productos.</p>
             <p>Desarrollo de materiales personalizados, iluminación y composición para lograr resultados fotorrealistas.</p>
         `,
-        mainImage: "images/P5/6-optimized.png",
-        additionalImages: [],
+        mainImage: "images/P5/12-optimized.jpg",
+        additionalImages: ["images/P4/11-optimized.jpg"],
         details: [
             "Configuración de materiales PBR",
             "Técnicas de iluminación de estudio",
@@ -134,8 +134,9 @@ const experienceData = [
             <p>Metodología completa para el desarrollo y validación de prototipos funcionales.</p>
             <p>Implementación de técnicas de prototipado rápido y pruebas de usuario para validar conceptos.</p>
         `,
-        mainImage: "images/P5/11-optimized.jpg",
-        additionalImages: ["images/P5/12-optimized.jpg"],
+        mainImage: "images/P10/01kiko.png",
+        videos: ["images/P10/GARCIA_kevin_Loro Marqués2.mp4"],
+        additionalImages: ["images/P10/agaporni 2.png", "images/P10/agaporni.png", "images/P10/02kiko.jpg", "images/P10/03kiko.jpg"],
         details: [
             "Prototipado rápido con impresión 3D",
             "Pruebas de usabilidad",
@@ -144,7 +145,147 @@ const experienceData = [
             "Análisis de resultados"
         ],
         year: "2024",
-        tools: ["Impresión 3D", "Arduino", "Herramientas de prototipado"]
+        tools: ["Modelado", "Electrónica", "Herramientas de prototipado"]
+    },
+    {
+        id: 3,
+        title: "Investigación en Materiales",
+        shortDescription: "Exploración de nuevos materiales y sus aplicaciones",
+        fullDescription: `
+            <p>Investigación profunda en materiales innovadores y sostenibles para el diseño de productos.</p>
+            <p>Análisis de propiedades, comportamiento y aplicaciones potenciales en diferentes contextos de diseño.</p>
+        `,
+        mainImage: "images/P5/6-optimized.png",
+        additionalImages: [],
+        details: [
+            "Análisis de materiales sostenibles",
+            "Pruebas de resistencia y durabilidad",
+            "Estudios de viabilidad",
+            "Experimentación con biomateriales",
+            "Documentación de resultados"
+        ],
+        year: "2023",
+        tools: ["Laboratorio de materiales", "Software de análisis", "Microscopía"]
+    },
+    {
+        id: 4,
+        title: "Reciclaje y Diseño",
+        shortDescription: "Diseño circular y sostenible",
+        fullDescription: `
+            <p>Desarrollo de productos y soluciones basadas en principios de economía circular y reciclaje.</p>
+            <p>Implementación de estrategias de diseño sostenible y reutilización de materiales.</p>
+        `,
+        mainImage: "images/P7/10.jpg",
+        additionalImages: [],
+        details: [
+            "Diseño para la circularidad",
+            "Gestión de residuos",
+            "Optimización de recursos",
+            "Análisis de ciclo de vida",
+            "Estrategias de reciclaje"
+        ],
+        year: "2023",
+        tools: ["CAD", "Software de análisis LCA", "Herramientas de prototipado"]
+    },
+    {
+        id: 5,
+        title: "Sistemas de Identidad",
+        shortDescription: "Desarrollo de identidad de marca y producto",
+        fullDescription: `
+            <p>Creación de sistemas de identidad coherentes para productos y marcas.</p>
+            <p>Desarrollo de lenguajes visuales y estrategias de comunicación integradas.</p>
+        `,
+        mainImage: "images/P2/10.1-optimized.png",
+        additionalImages: [],
+        details: [
+            "Desarrollo de marca",
+            "Diseño de sistemas visuales",
+            "Estrategia de comunicación",
+            "Guías de estilo",
+            "Aplicaciones de marca"
+        ],
+        year: "2024",
+        tools: ["Adobe CC", "Figma", "Herramientas de diseño gráfico"]
+    },
+    {
+        id: 6,
+        title: "Creatividad más allá de los Materiales",
+        shortDescription: "Exploración de conceptos innovadores",
+        fullDescription: `
+            <p>Investigación y desarrollo de conceptos que trascienden las limitaciones materiales tradicionales.</p>
+            <p>Exploración de nuevas formas de interacción y experiencia de usuario.</p>
+        `,
+        mainImage: "images/P6/01nudge.png",
+        additionalImages: [],
+        details: [
+            "Conceptualización avanzada",
+            "Diseño especulativo",
+            "Innovación en interacciones",
+            "Experiencias inmersivas",
+            "Prototipado conceptual"
+        ],
+        year: "2024",
+        tools: ["Realidad Virtual", "Herramientas de prototipado", "Software de modelado"]
+    },
+    {
+        id: 7,
+        title: "UX/UI",
+        shortDescription: "Diseño de experiencias digitales",
+        fullDescription: `
+            <p>Diseño de interfaces y experiencias de usuario centradas en la usabilidad y accesibilidad.</p>
+            <p>Desarrollo de soluciones digitales intuitivas y efectivas.</p>
+        `,
+        mainImage: "images/P6/02nudge-3.png",
+        additionalImages: [],
+        details: [
+            "Investigación de usuarios",
+            "Arquitectura de información",
+            "Diseño de interacción",
+            "Prototipado de interfaces",
+            "Pruebas de usabilidad"
+        ],
+        year: "2024",
+        tools: ["Figma", "Adobe XD", "Protopie", "Herramientas de testing"]
+    },
+    {
+        id: 8,
+        title: "Concursos",
+        shortDescription: "Participación en competiciones de diseño",
+        fullDescription: `
+            <p>Experiencia en concursos nacionales e internacionales de diseño.</p>
+            <p>Desarrollo de propuestas innovadoras bajo restricciones específicas.</p>
+        `,
+        mainImage: "images/P1/1.1-optimized.png",
+        additionalImages: [],
+        details: [
+            "Diseño conceptual",
+            "Presentación de proyectos",
+            "Trabajo bajo presión",
+            "Innovación dirigida",
+            "Competencias internacionales"
+        ],
+        year: "2023",
+        tools: ["Software de presentación", "Herramientas de visualización", "CAD"]
+    },
+    {
+        id: 9,
+        title: "Inteligencia Artificial",
+        shortDescription: "Integración de IA en diseño",
+        fullDescription: `
+            <p>Exploración y aplicación de tecnologías de IA en el proceso de diseño.</p>
+            <p>Desarrollo de soluciones que combinan diseño tradicional con inteligencia artificial.</p>
+        `,
+        mainImage: "images/P6/02nudge-5.png",
+        additionalImages: [],
+        details: [
+            "Generación de conceptos con IA",
+            "Optimización de diseños",
+            "Análisis predictivo",
+            "Automatización de procesos",
+            "Personalización inteligente"
+        ],
+        year: "2024",
+        tools: ["Python", "TensorFlow", "Herramientas de IA", "Software de diseño"]
     }
 ];
 

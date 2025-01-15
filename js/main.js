@@ -4,16 +4,17 @@ let currentProjectIndex = 0;
 function populateProjects() {
     const carouselContainer = document.querySelector('.carousel-container');
     
-    // Reordenar los proyectos para que Nudge aparezca primero
-    const nudgeIndex = projectsData.findIndex(project => project.id === 3);
-    const reorderedProjects = [
-        ...projectsData.slice(nudgeIndex),
-        ...projectsData.slice(0, nudgeIndex)
-    ];
+    // Ordenar los proyectos específicamente: Nudge (id: 3) en el centro, Flora (id: 2) a la derecha y Suculenta (id: 1) a la izquierda
+    const orderedProjects = [
+        projectsData.find(p => p.id === 1), // Suculenta
+        projectsData.find(p => p.id === 3), // Nudge
+        projectsData.find(p => p.id === 2), // Flora
+        projectsData.find(p => p.id === 4)  // Precious Water
+    ].filter(Boolean); // Eliminar cualquier undefined si algún proyecto no se encuentra
     
-    reorderedProjects.forEach((project, index) => {
+    orderedProjects.forEach((project, index) => {
         const projectElement = document.createElement('div');
-        projectElement.className = `carousel-item ${index === 0 ? 'active' : index === 1 ? 'next' : index === reorderedProjects.length - 1 ? 'prev' : ''}`;
+        projectElement.className = `carousel-item ${index === 1 ? 'active' : index === 2 ? 'next' : index === 0 ? 'prev' : ''}`;
         projectElement.innerHTML = `
             <a href="project-template.html?id=${project.id}&type=project">
                 <img src="${project.mainImage}" alt="${project.title}" loading="lazy">
