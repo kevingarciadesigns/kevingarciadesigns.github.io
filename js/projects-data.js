@@ -85,14 +85,14 @@ proyecto.</p>
     },
     {
         id: 4,
-        title: "Diseño Industrial",
-        shortDescription: "Innovación en diseño de productos",
+        title: "Precious Water",
+        shortDescription: "Sostenibilidad en el diseño de productos",
         fullDescription: `
-            <p>Proyecto centrado en el diseño industrial de productos de consumo, con énfasis en la funcionalidad y la estética.</p>
-            <p>Se aplicaron principios de diseño centrado en el usuario y fabricación sostenible.</p>
+            <p>El proyecto responde al desafío de sostenibilidad y ahorro de agua propuesto por Dorn Bracht, introduciendo una innovadora solución en grifería que no solo conserva el agua, sino que también transforma la experiencia del usuario respecto al consumo responsable. Este sistema avanzado incorpora un diseño estético y funcional, caracterizado por un tanque de almacenamiento con forma de diamante, que captura y almacena el agua fría inicialmente desperdiciada mientras alcanza la temperatura deseada.</p>
+            
         `,
-        mainImage: "images/P4/4-optimized.png",
-        additionalImages: ["images/P4/5-optimized.png", "images/P4/6-optimized.png"],
+        mainImage: "images/P7/10.jpg",
+        additionalImages: ["images/P7/11.png"],
         details: [
             "Diseño industrial avanzado",
             "Estudios ergonómicos",
@@ -100,8 +100,8 @@ proyecto.</p>
             "Optimización para fabricación",
             "Documentación técnica completa"
         ],
-        year: "2024",
-        tools: ["Fusion 360", "KeyShot", "Adobe CC"]
+        year: "2020",
+        tools: ["SolidWorks", "Maya", "Adobe CC"]
     }
 ];
 

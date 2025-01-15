@@ -23,7 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Populate item information
     document.getElementById('project-title').textContent = item.title;
     document.getElementById('project-description').textContent = item.shortDescription;
-    document.getElementById('project-full-description').innerHTML = item.fullDescription;
+    
+    // Añadir el botón "Saber más" solo para el proyecto Nudge
+    const fullDescriptionContainer = document.getElementById('project-full-description');
+    fullDescriptionContainer.innerHTML = item.fullDescription;
+    
+    if (item.title === "Nudge") {
+        const learnMoreButton = document.createElement('a');
+        learnMoreButton.href = 'nudge-details.html';
+        learnMoreButton.className = 'learn-more-button';
+        learnMoreButton.textContent = 'Saber más';
+        fullDescriptionContainer.appendChild(learnMoreButton);
+    }
 
     // Populate details
     const detailsList = document.getElementById('project-details');
