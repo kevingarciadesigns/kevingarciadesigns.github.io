@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 video.playsInline = true;
                 video.muted = true;
                 video.controls = false;
-                video.volume = 0.3;
+                video.volume = 0.1;
                 video.preload = 'auto';
                 video.style.width = '100%';
                 video.style.height = 'auto';
@@ -129,6 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 source.type = 'video/mp4';
                 video.appendChild(source);
                 video.load();
+                
+                // Asegurar que el volumen se mantiene al 10% incluso después de unmute
+                video.addEventListener('volumechange', () => {
+                    if (!video.muted && video.volume !== 0.1) {
+                        video.volume = 0.1;
+                    }
+                });
                 
                 video.addEventListener('loadedmetadata', () => {
                     video.play().catch(e => console.error('Error al reproducir:', e));
@@ -149,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 muteButton.addEventListener('click', () => {
                     video.muted = !video.muted;
                     if (!video.muted) {
-                        video.volume = 0.3;
+                        video.volume = 0.1;
                         muteImage.classList.remove('pulsing');
                     } else {
                         muteImage.classList.add('pulsing');
@@ -323,7 +330,7 @@ function loadProjectDetails(projectId) {
             video.loop = true;
             video.playsInline = true;
             video.controls = false;
-            video.volume = 0.3;
+            video.volume = 0.1;
             
             const source = document.createElement('source');
             source.src = encodeURI(videoSrc); // Codificar la URL para manejar espacios
@@ -346,7 +353,7 @@ function loadProjectDetails(projectId) {
             muteButton.addEventListener('click', () => {
                 video.muted = !video.muted;
                 if (!video.muted) {
-                    video.volume = 0.3;
+                    video.volume = 0.1;
                     muteImage.classList.remove('pulsing');
                 } else {
                     muteImage.classList.add('pulsing');
