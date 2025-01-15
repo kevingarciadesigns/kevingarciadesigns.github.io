@@ -98,7 +98,7 @@ proyecto.</p>
             "Estudios ergonómicos",
             "Selección de materiales sostenibles",
             "Optimización para fabricación",
-            "Documentación técnica completa"
+            "Sostenibilidad"
         ],
         year: "2020",
         tools: ["SolidWorks", "Maya", "Adobe CC"]
