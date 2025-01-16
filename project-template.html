@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto - Kevin García</title>
+    <title>Detalles del Proyecto - Kevin García</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/project.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,11 +15,14 @@
         <div class="container">
             <a href="index.html" class="logo">Kevin García</a>
             <ul class="nav-links">
-                <li><a href="index.html#proyectos">Proyectos</a></li>
-                <li><a href="index.html#experiencia">Experiencia</a></li>
-                <li><a href="index.html#sobre-mi">Sobre Mí</a></li>
-                <li><a href="index.html#contacto">Contacto</a></li>
+                <li><a href="index.html#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+                <li><a href="index.html#experiencia" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
+                <li><a href="index.html#sobre-mi" data-es="Sobre Mí" data-en="About Me">Sobre Mí</a></li>
+                <li><a href="index.html#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
             </ul>
+            <button id="languageToggle" class="language-toggle" aria-label="Cambiar idioma">
+                <span class="current-lang">ES</span>
+            </button>
         </div>
     </nav>
 
@@ -36,11 +39,11 @@
                 </div>
                 <div class="project-info">
                     <div class="info-section">
-                        <h2>Descripción del Proyecto</h2>
+                        <h2 data-es="Descripción del Proyecto" data-en="Project Description">Descripción del Proyecto</h2>
                         <div id="project-full-description"></div>
                     </div>
                     <div class="info-section">
-                        <h2>Detalles Técnicos</h2>
+                        <h2 data-es="Detalles Técnicos" data-en="Technical Details">Detalles Técnicos</h2>
                         <ul id="project-details"></ul>
                     </div>
                 </div>
@@ -59,11 +62,13 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Kevin García. Todos los derechos reservados.</p>
+            <p>&copy; 2024 Kevin García. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
         </div>
     </footer>
 
+    <script src="js/translations.js"></script>
     <script src="js/projects-data.js"></script>
     <script src="js/project-detail.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html> 

@@ -53,6 +53,8 @@ body {
     display: flex;
     list-style: none;
     gap: calc(var(--spacing-unit) * 4);
+    margin-left: auto;
+    margin-right: calc(var(--spacing-unit) * 4);
 }
 
 .nav-links a {
@@ -64,6 +66,27 @@ body {
 
 .nav-links a:hover {
     color: var(--accent-color);
+}
+
+.language-toggle {
+    background: none;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.language-toggle:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.current-lang {
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 /* Hero Section */

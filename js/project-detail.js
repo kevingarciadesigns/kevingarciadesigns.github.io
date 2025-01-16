@@ -17,31 +17,34 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    // Get current language
+    const currentLang = document.documentElement.lang || 'es';
+
     // Update page title
-    document.title = `${item.title} - Kevin García`;
+    document.title = `${currentLang === 'es' ? item.title : item.title_en} - Kevin García`;
 
     // Populate item information
-    document.getElementById('project-title').textContent = item.title;
-    document.getElementById('project-description').textContent = item.shortDescription;
+    document.getElementById('project-title').textContent = currentLang === 'es' ? item.title : item.title_en;
+    document.getElementById('project-description').textContent = currentLang === 'es' ? item.shortDescription : item.shortDescription_en;
     
     // Añadir el botón "Saber más" solo para el proyecto Nudge
     const fullDescriptionContainer = document.getElementById('project-full-description');
-    fullDescriptionContainer.innerHTML = item.fullDescription;
+    fullDescriptionContainer.innerHTML = currentLang === 'es' ? item.fullDescription : item.fullDescription_en;
     
     if (item.title === "Nudge") {
         const learnMoreButton = document.createElement('a');
         learnMoreButton.href = 'nudge-details.html';
         learnMoreButton.className = 'learn-more-button';
-        learnMoreButton.textContent = 'Saber más';
+        learnMoreButton.textContent = currentLang === 'es' ? 'Saber más' : 'Learn more';
         fullDescriptionContainer.appendChild(learnMoreButton);
     }
 
     // Populate details
     const detailsList = document.getElementById('project-details');
     const details = [
-        `Año: ${item.year}`,
-        'Herramientas: ' + item.tools.join(', '),
-        ...item.details
+        `${currentLang === 'es' ? 'Año' : 'Year'}: ${item.year}`,
+        `${currentLang === 'es' ? 'Herramientas' : 'Tools'}: ${(currentLang === 'es' ? item.tools : item.tools_en).join(', ')}`,
+        ...(currentLang === 'es' ? item.details : item.details_en)
     ];
 
     details.forEach(detail => {
@@ -57,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!(type === 'experience' && (id === '2' || id === '9'))) {
         const mainImage = document.createElement('img');
         mainImage.src = item.mainImage;
-        mainImage.alt = item.title;
+        mainImage.alt = currentLang === 'es' ? item.title : item.title_en;
         imagesContainer.appendChild(mainImage);
     }
 
@@ -68,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const animContainer = document.createElement('div');
         animContainer.className = 'animated-sequence';
         const img = document.createElement('img');
-        img.alt = `${item.title} - Secuencia animada`;
+        img.alt = `${currentLang === 'es' ? item.title : item.title_en} - ${currentLang === 'es' ? 'Secuencia animada' : 'Animated sequence'}`;
         img.loading = 'lazy';
         
         // Cargar la primera imagen
@@ -86,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Videos - Insertamos los videos justo después de la imagen principal
     if (item.videos && item.videos.length > 0) {
-        console.log('Intentando cargar videos:', item.videos);
         const videoContainer = document.createElement('div');
         videoContainer.className = 'video-container';
         
@@ -127,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             // Comportamiento original para Nudge y otros proyectos
             item.videos.forEach(videoSrc => {
-                console.log('Cargando video:', videoSrc);
                 const video = document.createElement('video');
                 
                 video.addEventListener('loadeddata', () => {
@@ -178,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 muteButton.className = 'mute-button';
                 const muteImage = document.createElement('img');
                 muteImage.src = 'images/P6/music.png';
-                muteImage.alt = 'Toggle sound';
+                muteImage.alt = currentLang === 'es' ? 'Alternar sonido' : 'Toggle sound';
                 muteImage.style.width = '20px';
                 muteImage.style.height = '20px';
                 muteImage.style.filter = 'brightness(0) invert(1)';
@@ -207,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const animContainer = document.createElement('div');
                 animContainer.className = 'animated-sequence';
                 const img = document.createElement('img');
-                img.alt = 'Nudge - Secuencia dinámica';
+                img.alt = currentLang === 'es' ? 'Nudge - Secuencia dinámica' : 'Nudge - Dynamic sequence';
                 img.loading = 'lazy';
                 
                 // Array con las imágenes 02nudge
@@ -239,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.additionalImages.forEach(imageSrc => {
             const img = document.createElement('img');
             img.src = imageSrc;
-            img.alt = `${item.title} - Imagen adicional`;
+            img.alt = `${currentLang === 'es' ? item.title : item.title_en} - ${currentLang === 'es' ? 'Imagen adicional' : 'Additional image'}`;
             img.loading = 'lazy';
             imagesContainer.appendChild(img);
         });
@@ -250,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const animContainer = document.createElement('div');
         animContainer.className = 'animated-sequence';
         const img = document.createElement('img');
-        img.alt = `${item.title} - Secuencia animada`;
+        img.alt = `${currentLang === 'es' ? item.title : item.title_en} - ${currentLang === 'es' ? 'Secuencia animada' : 'Animated sequence'}`;
         img.loading = 'lazy';
         
         // Cargar la primera imagen
@@ -276,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prevItem) {
         navPrevious.innerHTML = `
             <a href="project-template.html?id=${prevItem.id}&type=${type}">
-                ${prevItem.title}
+                ${currentLang === 'es' ? prevItem.title : prevItem.title_en}
             </a>
         `;
     }
@@ -284,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextItem) {
         navNext.innerHTML = `
             <a href="project-template.html?id=${nextItem.id}&type=${type}">
-                ${nextItem.title}
+                ${currentLang === 'es' ? nextItem.title : nextItem.title_en}
             </a>
         `;
     }

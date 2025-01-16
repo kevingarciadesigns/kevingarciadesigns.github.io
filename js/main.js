@@ -3,6 +3,7 @@ let currentProjectIndex = 0;
 // Populate projects carousel
 function populateProjects() {
     const carouselContainer = document.querySelector('.carousel-container');
+    const currentLang = document.documentElement.lang || 'es';
     
     // Ordenar los proyectos específicamente: Nudge (id: 3) en el centro, Flora (id: 2) a la derecha y Suculenta (id: 1) a la izquierda
     const orderedProjects = [
@@ -20,19 +21,19 @@ function populateProjects() {
         if (project.id === 9 && project.animatedSequence) {
             // Para el proyecto 9, crear un contenedor para la secuencia animada
             imageContent = `<div class="animated-sequence">
-                <img src="${project.animatedSequence.images[0]}" alt="${project.title}" loading="lazy">
+                <img src="${project.animatedSequence.images[0]}" alt="${currentLang === 'es' ? project.title : project.title_en}" loading="lazy">
             </div>`;
         } else {
             // Para otros proyectos, mostrar la imagen principal normalmente
-            imageContent = `<img src="${project.mainImage}" alt="${project.title}" loading="lazy">`;
+            imageContent = `<img src="${project.mainImage}" alt="${currentLang === 'es' ? project.title : project.title_en}" loading="lazy">`;
         }
         
         projectElement.innerHTML = `
             <a href="project-template.html?id=${project.id}&type=project">
                 ${imageContent}
                 <div class="carousel-project-info">
-                    <h3>${project.title}</h3>
-                    <p>${project.shortDescription}</p>
+                    <h3 data-es="${project.title}" data-en="${project.title_en}">${currentLang === 'es' ? project.title : project.title_en}</h3>
+                    <p data-es="${project.shortDescription}" data-en="${project.shortDescription_en}">${currentLang === 'es' ? project.shortDescription : project.shortDescription_en}</p>
                 </div>
             </a>
         `;
@@ -85,16 +86,17 @@ function navigateCarousel(direction) {
 // Populate experience grid
 function populateExperience() {
     const experienceGrid = document.querySelector('.experience-grid');
+    const currentLang = document.documentElement.lang || 'es';
     
     experienceData.forEach(exp => {
         const expElement = document.createElement('div');
         expElement.className = 'project-item'; // Reutilizamos los estilos de project-item
         expElement.innerHTML = `
             <a href="project-template.html?id=${exp.id}&type=experience">
-                <img src="${exp.mainImage}" alt="${exp.title}" loading="lazy">
+                <img src="${exp.mainImage}" alt="${currentLang === 'es' ? exp.title : exp.title_en}" loading="lazy">
                 <div class="project-info">
-                    <h3>${exp.title}</h3>
-                    <p>${exp.shortDescription}</p>
+                    <h3 data-es="${exp.title}" data-en="${exp.title_en}">${currentLang === 'es' ? exp.title : exp.title_en}</h3>
+                    <p data-es="${exp.shortDescription}" data-en="${exp.shortDescription_en}">${currentLang === 'es' ? exp.shortDescription : exp.shortDescription_en}</p>
                 </div>
             </a>
         `;
@@ -149,6 +151,90 @@ window.addEventListener('scroll', () => {
     }
     
     lastScroll = currentScroll;
+});
+
+// Language switching functionality
+let currentLanguage = 'es';
+
+function updateLanguage(lang) {
+    currentLanguage = lang;
+    document.documentElement.lang = lang;
+    
+    // Update navigation links
+    document.querySelector('a[href="#proyectos"]').textContent = translations[lang].projects;
+    document.querySelector('a[href="#experiencia"]').textContent = translations[lang].experience;
+    document.querySelector('a[href="#sobre-mi"]').textContent = translations[lang].aboutMe;
+    document.querySelector('a[href="#contacto"]').textContent = translations[lang].contact;
+    
+    // Update hero section
+    document.querySelector('.hero h1').textContent = translations[lang].productDesign;
+    document.querySelector('.hero .subtitle').textContent = translations[lang].heroSubtitle;
+    
+    // Update sections titles
+    document.querySelector('#proyectos h2').textContent = translations[lang].featuredProjects;
+    document.querySelector('#experiencia h2').textContent = translations[lang].experienceTitle;
+    document.querySelector('#sobre-mi h2').textContent = translations[lang].aboutTitle;
+    document.querySelector('#contacto h2').textContent = translations[lang].contactTitle;
+    
+    // Update about section
+    document.querySelector('.about-text p').textContent = translations[lang].aboutText;
+    document.querySelector('.about-text .btn').textContent = translations[lang].viewCV;
+    document.querySelector('.about-text .btn-secondary').textContent = translations[lang].learnMore;
+    
+    // Update footer
+    document.querySelector('footer p').textContent = `© 2024 Kevin García. ${translations[lang].copyright}`;
+    
+    // Update language toggle button
+    document.querySelector('.current-lang').textContent = translations[lang].currentLang;
+    document.querySelector('#languageToggle').setAttribute('aria-label', 
+        lang === 'es' ? translations.es.switchToEnglish : translations.en.switchToSpanish
+    );
+}
+
+// Add event listener to language toggle button
+document.getElementById('languageToggle').addEventListener('click', () => {
+    const newLang = currentLanguage === 'es' ? 'en' : 'es';
+    updateLanguage(newLang);
+});
+
+// Función para actualizar el idioma de las tarjetas
+function updateCardsLanguage() {
+    const currentLang = document.documentElement.lang || 'es';
+    
+    // Actualizar tarjetas de proyectos
+    document.querySelectorAll('.carousel-project-info h3, .carousel-project-info p').forEach(element => {
+        if (element.dataset.es && element.dataset.en) {
+            element.textContent = currentLang === 'es' ? element.dataset.es : element.dataset.en;
+        }
+    });
+
+    // Actualizar tarjetas de experiencia
+    document.querySelectorAll('.project-info h3, .project-info p').forEach(element => {
+        if (element.dataset.es && element.dataset.en) {
+            element.textContent = currentLang === 'es' ? element.dataset.es : element.dataset.en;
+        }
+    });
+
+    // Actualizar alt de imágenes
+    document.querySelectorAll('img[alt]').forEach(img => {
+        const parent = img.closest('a');
+        if (parent) {
+            const titleElement = parent.querySelector('h3');
+            if (titleElement && titleElement.dataset.es && titleElement.dataset.en) {
+                img.alt = currentLang === 'es' ? titleElement.dataset.es : titleElement.dataset.en;
+            }
+        }
+    });
+}
+
+// Agregar la función updateCardsLanguage al evento de cambio de idioma
+document.addEventListener('DOMContentLoaded', () => {
+    const languageToggle = document.getElementById('languageToggle');
+    if (languageToggle) {
+        languageToggle.addEventListener('click', () => {
+            setTimeout(updateCardsLanguage, 0);
+        });
+    }
 });
 
 // Initialize
