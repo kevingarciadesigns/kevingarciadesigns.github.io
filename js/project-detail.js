@@ -53,11 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Populate images
     const imagesContainer = document.querySelector('.project-images');
     
-    // Imagen principal
-    const mainImage = document.createElement('img');
-    mainImage.src = item.mainImage;
-    mainImage.alt = item.title;
-    imagesContainer.appendChild(mainImage);
+    // Imagen principal - Solo mostrar si no es experiencia ID 3
+    if (!(type === 'experience' && id === '3')) {
+        const mainImage = document.createElement('img');
+        mainImage.src = item.mainImage;
+        mainImage.alt = item.title;
+        imagesContainer.appendChild(mainImage);
+    }
 
     // Videos - Insertamos los videos justo después de la imagen principal
     if (item.videos && item.videos.length > 0) {

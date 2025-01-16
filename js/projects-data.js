@@ -152,10 +152,11 @@ const experienceData = [
         title: "Investigación en Materiales",
         shortDescription: "Exploración de nuevos materiales y sus aplicaciones",
         fullDescription: `
-            <p>Investigación profunda en materiales innovadores y sostenibles para el diseño de productos.</p>
+            <p>Investigación en materiales innovadores y sostenibles para el diseño de productos. En este caso, la elaboración de un bioplástico a partir de la semilla del aguacate.</p>
             <p>Análisis de propiedades, comportamiento y aplicaciones potenciales en diferentes contextos de diseño.</p>
         `,
-        mainImage: "images/P5/6-optimized.png",
+        mainImage: "images/P12/portada.png",
+        videos: ["images/P12/videoaguacate.mp4"],
         additionalImages: [],
         details: [
             "Análisis de materiales sostenibles",
