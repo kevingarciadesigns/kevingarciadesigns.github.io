@@ -53,12 +53,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // Populate images
     const imagesContainer = document.querySelector('.project-images');
     
-    // Imagen principal - Solo mostrar si no es experiencia ID 3
-    if (!(type === 'experience' && id === '3')) {
+    // Imagen principal - Solo ocultar para experiencia ID 2 y cuando es experiencia ID 9
+    if (!(type === 'experience' && (id === '2' || id === '9'))) {
         const mainImage = document.createElement('img');
         mainImage.src = item.mainImage;
         mainImage.alt = item.title;
         imagesContainer.appendChild(mainImage);
+    }
+
+    // Si es la experiencia 9, añadir la secuencia animada al principio
+    let hasAnimatedSequence = false;
+    if (type === 'experience' && id === '9' && item.animatedSequence) {
+        hasAnimatedSequence = true;
+        const animContainer = document.createElement('div');
+        animContainer.className = 'animated-sequence';
+        const img = document.createElement('img');
+        img.alt = `${item.title} - Secuencia animada`;
+        img.loading = 'lazy';
+        
+        // Cargar la primera imagen
+        img.src = item.animatedSequence.images[0];
+        animContainer.appendChild(img);
+        imagesContainer.appendChild(animContainer);
+
+        // Iniciar la animación
+        let currentIndex = 0;
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % item.animatedSequence.images.length;
+            img.src = item.animatedSequence.images[currentIndex];
+        }, item.animatedSequence.interval);
     }
 
     // Videos - Insertamos los videos justo después de la imagen principal
@@ -125,6 +148,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 video.style.width = '100%';
                 video.style.height = 'auto';
                 video.style.display = 'block';
+                
+                // Ajustes especiales solo para experiencia ID 7
+                if (type === 'experience' && id === '7') {
+                    video.style.width = '50%';
+                    video.style.margin = '0 auto'; // Centrar el video
+                    video.style.boxShadow = 'none'; // Quitar el shadow
+                }
                 
                 const source = document.createElement('source');
                 source.src = videoSrc;
@@ -215,8 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Secuencia animada de imágenes
-    if (item.animatedSequence && item.animatedSequence.images.length > 0) {
+    // Secuencia animada de imágenes (solo si no se ha mostrado antes)
+    if (!hasAnimatedSequence && item.animatedSequence && item.animatedSequence.images.length > 0) {
         const animContainer = document.createElement('div');
         animContainer.className = 'animated-sequence';
         const img = document.createElement('img');

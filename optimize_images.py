@@ -1,10 +1,10 @@
 from PIL import Image
 import os
 
-def optimize_image(filename):
+def optimize_image(filepath):
     try:
         # Open the image
-        with Image.open(filename) as img:
+        with Image.open(filepath) as img:
             # Convert RGBA to RGB if necessary
             if img.mode == 'RGBA':
                 img = img.convert('RGB')
@@ -13,38 +13,81 @@ def optimize_image(filename):
             max_size = (1200, 1200)
             img.thumbnail(max_size, Image.Resampling.LANCZOS)
             
-            # Prepare output filename
+            # Get the directory and filename
+            directory = os.path.dirname(filepath)
+            filename = os.path.basename(filepath)
             name, ext = os.path.splitext(filename)
-            output_filename = f"{name}-optimized{ext}"
+            
+            # If filename doesn't already contain '-optimized', add it
+            if not name.endswith('-optimized'):
+                output_filename = f"{name}-optimized{ext}"
+            else:
+                output_filename = filename
+                
+            # Create output path
+            output_filepath = os.path.join(directory, output_filename)
             
             # Save optimized image
             if ext.lower() == '.png':
-                img.save(output_filename, 'PNG', optimize=True, quality=80)
+                img.save(output_filepath, 'PNG', optimize=True, quality=80)
             else:
-                img.save(output_filename, 'JPEG', optimize=True, quality=80, progressive=True)
+                img.save(output_filepath, 'JPEG', optimize=True, quality=80, progressive=True)
             
-            print(f"Optimized: {filename} -> {output_filename}")
+            print(f"Optimized: {filepath} -> {output_filepath}")
             
             # Get file sizes for comparison
-            original_size = os.path.getsize(filename) / (1024 * 1024)  # MB
-            optimized_size = os.path.getsize(output_filename) / (1024 * 1024)  # MB
+            original_size = os.path.getsize(filepath) / (1024 * 1024)  # MB
+            optimized_size = os.path.getsize(output_filepath) / (1024 * 1024)  # MB
             print(f"Size reduced from {original_size:.2f}MB to {optimized_size:.2f}MB")
             
+            return output_filename
+            
     except Exception as e:
-        print(f"Error processing {filename}: {str(e)}")
+        print(f"Error processing {filepath}: {str(e)}")
+        return None
+
+def find_images(directory):
+    image_files = []
+    for root, _, files in os.walk(directory):
+        for file in files:
+            if file.lower().endswith(('.png', '.jpg', '.jpeg')):
+                filepath = os.path.join(root, file)
+                # Skip already optimized images
+                if not file.endswith('-optimized.png') and not file.endswith('-optimized.jpg') and not file.endswith('-optimized.jpeg'):
+                    image_files.append(filepath)
+    return image_files
 
 def main():
-    # List of image files to optimize
-    image_files = [
-        'Foto perfil.png',
-        '1.png', '2.png', '3.png', '4.png', '5.png',
-        '6.png', '7.png', '8.png', '9.png', '10.png',
-        '11.jpg', '12.jpg'
-    ]
+    # Find all images in the images directory
+    image_files = find_images('images')
     
-    for filename in image_files:
-        if os.path.exists(filename):
-            optimize_image(filename)
+    # Dictionary to store original to optimized filename mappings
+    optimized_mappings = {}
+    
+    # Optimize all images
+    for filepath in image_files:
+        optimized_filename = optimize_image(filepath)
+        if optimized_filename:
+            original_filename = os.path.basename(filepath)
+            optimized_mappings[original_filename] = optimized_filename
+    
+    # Update projects-data.js with new image paths
+    if optimized_mappings:
+        try:
+            with open('js/projects-data.js', 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Replace image paths with optimized versions
+            for original, optimized in optimized_mappings.items():
+                content = content.replace(f'"{original}"', f'"{optimized}"')
+            
+            with open('js/projects-data.js', 'w', encoding='utf-8') as f:
+                f.write(content)
+            
+            print("\nUpdated projects-data.js with optimized image paths")
+            
+        except Exception as e:
+            print(f"Error updating projects-data.js: {str(e)}")
 
 if __name__ == '__main__':
     main() 

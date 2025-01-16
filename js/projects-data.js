@@ -128,6 +128,147 @@ const experienceData = [
     },
     {
         id: 2,
+        title: "Investigación en Materiales",
+        shortDescription: "Exploración de nuevos materiales y sus aplicaciones",
+        fullDescription: `
+            <p>Investigación en materiales innovadores y sostenibles para el diseño de productos. En este caso, la elaboración de un bioplástico a partir de la semilla del aguacate.</p>
+            <p>Análisis de propiedades, comportamiento y aplicaciones potenciales en diferentes contextos de diseño.</p>
+        `,
+        mainImage: "images/P12/portada.png",
+        videos: ["images/P12/videoaguacate.mp4"],
+        additionalImages: ["images/P12/5.jpg", "images/P12/7.jpg"],
+        animatedSequence: {
+            images: [
+                "images/P12/captura1.JPG",
+                "images/P12/captura2.JPG",
+                "images/P12/captura3.JPG",
+                "images/P12/captura4.JPG",
+                "images/P12/captura5.JPG",
+                "images/P12/captura6.JPG",
+                "images/P12/captura7.JPG",
+                "images/P12/captura8.JPG",
+                "images/P12/captura9.JPG",
+                "images/P12/captura10.JPG",
+                "images/P12/captura11.JPG"
+            ],
+            interval: 1000 // intervalo en milisegundos entre cada imagen
+        },
+        details: [
+            "Análisis de materiales sostenibles",
+            "Pruebas de resistencia y durabilidad",
+            "Estudios de viabilidad",
+            "Experimentación con biomateriales",
+            "Documentación de resultados"
+        ],
+        year: "2022",
+        tools: ["Laboratorio de materiales", "Software de análisis", "Microscopía"]
+
+    },
+    {
+        id: 3,
+        title: "Exploded views",
+        shortDescription: "Análisis y desarrollo de piezas 3D",
+        fullDescription: `
+            <p>Metodología completa para el desarrollo y validación de diseños 3D.</p>
+            <p>Implementación de técnicas de modelado 3D para validar conceptos.</p>
+        `,
+        mainImage: "images/P3/6-optimized.png",
+        additionalImages: ["images/P3/5-optimized.png"],
+        details: [
+            "Prototipado rápido con impresión 3D",
+            "Pruebas de usabilidad",
+            "Iteración y refinamiento",
+            "Documentación del proceso",
+            "Análisis de resultados"
+        ],
+        year: "2024",
+        tools: ["Modelado", "Electrónica", "Herramientas de prototipado"]
+       
+    },
+    {
+        id: 4,
+        title: "Reciclaje y Diseño",
+        shortDescription: "Diseño circular y sostenible",
+        fullDescription: `
+            <p>Desarrollo de unas gafas a partir de plástico reciclado.</p>
+            <p>Implementación de estrategias de diseño sostenible y reutilización de materiales junto con el aprendizaje de herramientas de corte láser y termoformado.</p>
+        `,
+        mainImage: "images/P14/01potatsio.png",
+        additionalImages: ["images/P14/03potatsio.png", "images/P14/02potatsio.png", "images/P14/Garcia_kevin_sunglasses.png", "images/P14/05potatsio.JPG"],
+        details: [
+            "Diseño para la circularidad",
+            "Gestión de residuos",
+            "Optimización de recursos",
+            "Análisis de ciclo de vida",
+            "Estrategias de reciclaje"
+        ],
+        year: "2021",
+        tools: ["Corte láser", "Termoformado", "Herramientas de prototipado"]
+    },
+    {
+        id: 5,
+        title: "Sistemas de Identidad",
+        shortDescription: "Desarrollo de identidad de marca y producto",
+        fullDescription: `
+            <p>Creación de sistemas de identidad coherentes para productos y marcas.</p>
+            <p>Desarrollo de lenguajes visuales y estrategias de comunicación integradas.</p>
+        `,
+        mainImage: "images/P11/01takodaki.png",
+        additionalImages: ["images/P11/02takodaki.png", "images/P11/03takodaki.png", "images/P11/04.1takodaki.png", "images/P11/04.2takodaki.png", "images/P11/05takodaki.png"],
+        details: [
+            "Desarrollo de marca",
+            "Diseño de sistemas visuales",
+            "Estrategia de comunicación",
+            "Guías de estilo",
+            "Aplicaciones de marca"
+        ],
+        year: "2023",
+        tools: ["Adobe CC", "Figma", "Herramientas de diseño gráfico"]
+    },
+    {
+        id: 6,
+        title: "Creatividad más allá de los Materiales",
+        shortDescription: "Exploración de conceptos innovadores",
+        fullDescription: `
+            <p>Investigación y desarrollo de conceptos que trascienden las limitaciones materiales tradicionales.</p>
+            <p>Exploración de nuevas formas de interacción y experiencia de usuario.</p>
+        `,
+        mainImage: "images/P8/01sucreta.png",
+        additionalImages: ["images/P8/02sucreta.jpg", "images/p8/03sucreta.png", "images/p8/04sucreta.png", "images/p8/05sucreta.png"],
+        videos: ["images/P8/sucreta_video.mp4"],
+        details: [
+            "Conceptualización avanzada",
+            "Diseño especulativo",
+            "Innovación en interacciones",
+            "Experiencias inmersivas",
+            "Prototipado conceptual"
+        ],
+        year: "2024",
+        tools: ["Manipulación de alimentos", "Herramientas de prototipado", "Software de modelado"]
+    },
+    {
+        id: 7,
+        title: "UX/UI",
+        shortDescription: "Diseño de experiencias digitales",
+        fullDescription: `
+            <p>Diseño de interfaces y experiencias de usuario centradas en la usabilidad y accesibilidad.</p>
+            <p>Desarrollo de soluciones digitales intuitivas y efectivas.</p>
+        `,
+        mainImage: "images/P9/01tiner.png",
+        additionalImages: ["images/P9/03tiner.png","images/P9/02tiner.png"],
+        videos: ["images/P9/Tiner_final.mp4"],
+        details: [
+            "Investigación de usuarios",
+            "Arquitectura de información",
+            "Diseño de interacción",
+            "Prototipado de interfaces",
+            "Pruebas de usabilidad"
+        ],
+        year: "2024",
+        tools: ["Figma", "Adobe XD", "Protopie", "Herramientas de testing"]
+    },
+    {
+        id: 8,
         title: "Prototipado y Pruebas",
         shortDescription: "Desarrollo y validación de prototipos",
         fullDescription: `
@@ -148,127 +289,6 @@ const experienceData = [
         tools: ["Modelado", "Electrónica", "Herramientas de prototipado"]
     },
     {
-        id: 3,
-        title: "Investigación en Materiales",
-        shortDescription: "Exploración de nuevos materiales y sus aplicaciones",
-        fullDescription: `
-            <p>Investigación en materiales innovadores y sostenibles para el diseño de productos. En este caso, la elaboración de un bioplástico a partir de la semilla del aguacate.</p>
-            <p>Análisis de propiedades, comportamiento y aplicaciones potenciales en diferentes contextos de diseño.</p>
-        `,
-        mainImage: "images/P12/portada.png",
-        videos: ["images/P12/videoaguacate.mp4"],
-        additionalImages: [],
-        details: [
-            "Análisis de materiales sostenibles",
-            "Pruebas de resistencia y durabilidad",
-            "Estudios de viabilidad",
-            "Experimentación con biomateriales",
-            "Documentación de resultados"
-        ],
-        year: "2023",
-        tools: ["Laboratorio de materiales", "Software de análisis", "Microscopía"]
-    },
-    {
-        id: 4,
-        title: "Reciclaje y Diseño",
-        shortDescription: "Diseño circular y sostenible",
-        fullDescription: `
-            <p>Desarrollo de productos y soluciones basadas en principios de economía circular y reciclaje.</p>
-            <p>Implementación de estrategias de diseño sostenible y reutilización de materiales.</p>
-        `,
-        mainImage: "images/P7/10.jpg",
-        additionalImages: [],
-        details: [
-            "Diseño para la circularidad",
-            "Gestión de residuos",
-            "Optimización de recursos",
-            "Análisis de ciclo de vida",
-            "Estrategias de reciclaje"
-        ],
-        year: "2023",
-        tools: ["CAD", "Software de análisis LCA", "Herramientas de prototipado"]
-    },
-    {
-        id: 5,
-        title: "Sistemas de Identidad",
-        shortDescription: "Desarrollo de identidad de marca y producto",
-        fullDescription: `
-            <p>Creación de sistemas de identidad coherentes para productos y marcas.</p>
-            <p>Desarrollo de lenguajes visuales y estrategias de comunicación integradas.</p>
-        `,
-        mainImage: "images/P2/10.1-optimized.png",
-        additionalImages: [],
-        details: [
-            "Desarrollo de marca",
-            "Diseño de sistemas visuales",
-            "Estrategia de comunicación",
-            "Guías de estilo",
-            "Aplicaciones de marca"
-        ],
-        year: "2024",
-        tools: ["Adobe CC", "Figma", "Herramientas de diseño gráfico"]
-    },
-    {
-        id: 6,
-        title: "Creatividad más allá de los Materiales",
-        shortDescription: "Exploración de conceptos innovadores",
-        fullDescription: `
-            <p>Investigación y desarrollo de conceptos que trascienden las limitaciones materiales tradicionales.</p>
-            <p>Exploración de nuevas formas de interacción y experiencia de usuario.</p>
-        `,
-        mainImage: "images/P6/01nudge.png",
-        additionalImages: [],
-        details: [
-            "Conceptualización avanzada",
-            "Diseño especulativo",
-            "Innovación en interacciones",
-            "Experiencias inmersivas",
-            "Prototipado conceptual"
-        ],
-        year: "2024",
-        tools: ["Realidad Virtual", "Herramientas de prototipado", "Software de modelado"]
-    },
-    {
-        id: 7,
-        title: "UX/UI",
-        shortDescription: "Diseño de experiencias digitales",
-        fullDescription: `
-            <p>Diseño de interfaces y experiencias de usuario centradas en la usabilidad y accesibilidad.</p>
-            <p>Desarrollo de soluciones digitales intuitivas y efectivas.</p>
-        `,
-        mainImage: "images/P6/02nudge-3.png",
-        additionalImages: [],
-        details: [
-            "Investigación de usuarios",
-            "Arquitectura de información",
-            "Diseño de interacción",
-            "Prototipado de interfaces",
-            "Pruebas de usabilidad"
-        ],
-        year: "2024",
-        tools: ["Figma", "Adobe XD", "Protopie", "Herramientas de testing"]
-    },
-    {
-        id: 8,
-        title: "Concursos",
-        shortDescription: "Participación en competiciones de diseño",
-        fullDescription: `
-            <p>Experiencia en concursos nacionales e internacionales de diseño.</p>
-            <p>Desarrollo de propuestas innovadoras bajo restricciones específicas.</p>
-        `,
-        mainImage: "images/P1/1.1-optimized.png",
-        additionalImages: [],
-        details: [
-            "Diseño conceptual",
-            "Presentación de proyectos",
-            "Trabajo bajo presión",
-            "Innovación dirigida",
-            "Competencias internacionales"
-        ],
-        year: "2023",
-        tools: ["Software de presentación", "Herramientas de visualización", "CAD"]
-    },
-    {
         id: 9,
         title: "Inteligencia Artificial",
         shortDescription: "Integración de IA en diseño",
@@ -276,8 +296,17 @@ const experienceData = [
             <p>Exploración y aplicación de tecnologías de IA en el proceso de diseño.</p>
             <p>Desarrollo de soluciones que combinan diseño tradicional con inteligencia artificial.</p>
         `,
-        mainImage: "images/P6/02nudge-5.png",
+        mainImage: "images/P13/01.3water.png",
         additionalImages: [],
+        animatedSequence: {
+            images: [
+                "images/P13/01.1water.png",
+                "images/P13/01.2water.png",
+                "images/P13/01.3water.png",
+                "images/P13/01.4water.png"
+            ],
+            interval: 800
+        },
         details: [
             "Generación de conceptos con IA",
             "Optimización de diseños",
@@ -286,7 +315,7 @@ const experienceData = [
             "Personalización inteligente"
         ],
         year: "2024",
-        tools: ["Python", "TensorFlow", "Herramientas de IA", "Software de diseño"]
+        tools: ["Python", "StableDifussion", "Herramientas de IA", "Software de diseño"]
     }
 ];
 

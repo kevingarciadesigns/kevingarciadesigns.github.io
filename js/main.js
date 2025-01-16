@@ -15,9 +15,21 @@ function populateProjects() {
     orderedProjects.forEach((project, index) => {
         const projectElement = document.createElement('div');
         projectElement.className = `carousel-item ${index === 1 ? 'active' : index === 2 ? 'next' : index === 0 ? 'prev' : ''}`;
+        
+        let imageContent = '';
+        if (project.id === 9 && project.animatedSequence) {
+            // Para el proyecto 9, crear un contenedor para la secuencia animada
+            imageContent = `<div class="animated-sequence">
+                <img src="${project.animatedSequence.images[0]}" alt="${project.title}" loading="lazy">
+            </div>`;
+        } else {
+            // Para otros proyectos, mostrar la imagen principal normalmente
+            imageContent = `<img src="${project.mainImage}" alt="${project.title}" loading="lazy">`;
+        }
+        
         projectElement.innerHTML = `
             <a href="project-template.html?id=${project.id}&type=project">
-                <img src="${project.mainImage}" alt="${project.title}" loading="lazy">
+                ${imageContent}
                 <div class="carousel-project-info">
                     <h3>${project.title}</h3>
                     <p>${project.shortDescription}</p>
@@ -25,6 +37,16 @@ function populateProjects() {
             </a>
         `;
         carouselContainer.appendChild(projectElement);
+
+        // Iniciar la animación si es el proyecto 9
+        if (project.id === 9 && project.animatedSequence) {
+            const img = projectElement.querySelector('.animated-sequence img');
+            let currentIndex = 0;
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % project.animatedSequence.images.length;
+                img.src = project.animatedSequence.images[currentIndex];
+            }, project.animatedSequence.interval);
+        }
     });
 
     // Add event listeners for navigation buttons
