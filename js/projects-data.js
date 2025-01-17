@@ -346,7 +346,7 @@ const experienceData = [
             <p>Exploration of new forms of interaction and user experience.</p>
         `,
         mainImage: "images/P8/01sucreta.png",
-        additionalImages: ["images/P8/02sucreta.jpg", "images/p8/03sucreta.png", "images/p8/04sucreta.png", "images/p8/05sucreta.png"],
+        additionalImages: ["images/P8/02sucreta.jpg", "images/P8/03sucreta.png", "images/P8/04sucreta.png", "images/P8/05sucreta.png"],
         videos: ["images/P8/sucreta_video.mp4"],
         details: [
             "Conceptualización avanzada",
@@ -489,13 +489,13 @@ function getProjectById(id) {
 // Función para obtener el siguiente proyecto
 function getNextProject(currentId) {
     const currentIndex = projectsData.findIndex(project => project.id === parseInt(currentId));
-    return projectsData[currentIndex + 1] || null;
+    return currentIndex === projectsData.length - 1 ? projectsData[0] : projectsData[currentIndex + 1];
 }
 
 // Función para obtener el proyecto anterior
 function getPreviousProject(currentId) {
     const currentIndex = projectsData.findIndex(project => project.id === parseInt(currentId));
-    return projectsData[currentIndex - 1] || null;
+    return currentIndex === 0 ? projectsData[projectsData.length - 1] : projectsData[currentIndex - 1];
 }
 
 // Nuevas funciones para experiencia
@@ -505,10 +505,10 @@ function getExperienceById(id) {
 
 function getNextExperience(currentId) {
     const currentIndex = experienceData.findIndex(exp => exp.id === parseInt(currentId));
-    return experienceData[currentIndex + 1] || null;
+    return currentIndex === experienceData.length - 1 ? experienceData[0] : experienceData[currentIndex + 1];
 }
 
 function getPreviousExperience(currentId) {
     const currentIndex = experienceData.findIndex(exp => exp.id === parseInt(currentId));
-    return experienceData[currentIndex - 1] || null;
+    return currentIndex === 0 ? experienceData[experienceData.length - 1] : experienceData[currentIndex - 1];
 } 
