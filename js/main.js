@@ -4,12 +4,12 @@ function populateProjects() {
     const currentLang = document.documentElement.lang || 'es';
     
     // Define the specific order of projects by their IDs
-    // Suculenta (1), Flora (2), Nudge (3), Precious Water (4)
+    // Nudge (3), Precious Water (4), Suculenta (1), Flora (2)
     const orderedProjects = [
-        projectsData.find(p => p.id === 1), // Suculenta
-        projectsData.find(p => p.id === 2), // Flora
         projectsData.find(p => p.id === 3), // Nudge
-        projectsData.find(p => p.id === 4)  // Precious Water
+        projectsData.find(p => p.id === 4), // Precious Water
+        projectsData.find(p => p.id === 1), // Suculenta
+        projectsData.find(p => p.id === 2)  // Flora
     ].filter(Boolean); // Remove any undefined entries
     
     // Clear existing content
@@ -17,9 +17,9 @@ function populateProjects() {
     
     // Set initial state
     const initialState = {
-        prev: orderedProjects.length - 1,  // Precious Water
-        active: 0,                         // Suculenta
-        next: 1                            // Flora
+        prev: orderedProjects.length - 1,  // Flora
+        active: 0,                         // Nudge
+        next: 1                            // Precious Water
     };
     
     orderedProjects.forEach((project, index) => {
