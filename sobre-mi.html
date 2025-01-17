@@ -9,17 +9,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">Kevin García</a>
             <ul class="nav-links">
-                <li><a href="index.html#proyectos">Proyectos</a></li>
-                <li><a href="index.html#experiencia">Experiencia</a></li>
-                <li><a href="index.html#sobre-mi">Sobre Mí</a></li>
-                <li><a href="index.html#contacto">Contacto</a></li>
+                <li><a href="index.html#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+                <li><a href="index.html#experiencia" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
+                <li><a href="index.html#sobre-mi" data-es="Sobre Mí" data-en="About Me">Sobre Mí</a></li>
+                <li><a href="index.html#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
             </ul>
+            <button id="languageToggle" class="language-toggle" aria-label="Cambiar idioma">
+                <span class="current-lang">ES</span>
+            </button>
         </div>
     </nav>
 
@@ -34,17 +38,23 @@
                 
                 <div class="about-content">
                     <div class="text-content">
-                        <p>¡Buenas! Mi nombre es Kevin, y mi trayectoria profesional comenzó en el ámbito sanitario, específicamente en laboratorios hospitalarios. Sin embargo, mi creciente interés por el diseño y la tecnología me llevó hacia el mundo de los laboratorios de desarrollo de impresoras 3D. Fue allí donde se encendió mi pasión por los procesos de diseño y análisis en 3D, lo que me impulsó a iniciar mi formación especializada en estos campos, junto con el estudio de los distintos procesos de creación que predominan en el mercado.</p>
+                        <p data-es="¡Buenas! Mi nombre es Kevin, y mi trayectoria profesional comenzó en el ámbito sanitario, específicamente en laboratorios hospitalarios. Sin embargo, mi creciente interés por el diseño y la tecnología me llevó hacia el mundo de los laboratorios de desarrollo de impresoras 3D. Fue allí donde se encendió mi pasión por los procesos de diseño y análisis en 3D, lo que me impulsó a iniciar mi formación especializada en estos campos, junto con el estudio de los distintos procesos de creación que predominan en el mercado." 
+                           data-en="Hello! My name is Kevin, and my professional journey began in the healthcare sector, specifically in hospital laboratories. However, my growing interest in design and technology led me to the world of 3D printer development laboratories. It was there that my passion for 3D design and analysis processes was ignited, which drove me to begin my specialized training in these fields, along with studying the various creation processes that dominate the market.">¡Buenas! Mi nombre es Kevin, y mi trayectoria profesional comenzó en el ámbito sanitario, específicamente en laboratorios hospitalarios. Sin embargo, mi creciente interés por el diseño y la tecnología me llevó hacia el mundo de los laboratorios de desarrollo de impresoras 3D. Fue allí donde se encendió mi pasión por los procesos de diseño y análisis en 3D, lo que me impulsó a iniciar mi formación especializada en estos campos, junto con el estudio de los distintos procesos de creación que predominan en el mercado.</p>
 
-                        <p>Tras años de ganar experiencia práctica y profundizar en el diseño técnico, decidí expandir formalmente mi educación con un grado universitario en diseño de producto. Este paso no solo fortaleció mis habilidades técnicas, sino que también enriqueció mi capacidad para integrar soluciones innovadoras y efectivas en cada proyecto.</p>
+                        <p data-es="Tras años de ganar experiencia práctica y profundizar en el diseño técnico, decidí expandir formalmente mi educación con un grado universitario en diseño de producto. Este paso no solo fortaleció mis habilidades técnicas, sino que también enriqueció mi capacidad para integrar soluciones innovadoras y efectivas en cada proyecto." 
+                           data-en="After years of gaining practical experience and deepening my knowledge in technical design, I decided to formally expand my education with a university degree in product design. This step not only strengthened my technical skills but also enriched my ability to integrate innovative and effective solutions into each project.">Tras años de ganar experiencia práctica y profundizar en el diseño técnico, decidí expandir formalmente mi educación con un grado universitario en diseño de producto. Este paso no solo fortaleció mis habilidades técnicas, sino que también enriqueció mi capacidad para integrar soluciones innovadoras y efectivas en cada proyecto.</p>
 
-                        <p>Encuentro que el desarrollo de diferentes casos dentro del diseño es un ejercicio extraordinariamente estimulante que me permite explotar al máximo mi creatividad. Cada nuevo desafío es una oportunidad para aplicar mi visión creativa y técnica, lo que resulta en soluciones que no solo satisfacen las necesidades del mercado, sino que también empujan los límites de lo que es posible en el diseño de productos.</p>
+                        <p data-es="Encuentro que el desarrollo de diferentes casos dentro del diseño es un ejercicio extraordinariamente estimulante que me permite explotar al máximo mi creatividad. Cada nuevo desafío es una oportunidad para aplicar mi visión creativa y técnica, lo que resulta en soluciones que no solo satisfacen las necesidades del mercado, sino que también empujan los límites de lo que es posible en el diseño de productos." 
+                           data-en="I find that developing different cases within design is an extraordinarily stimulating exercise that allows me to fully exploit my creativity. Each new challenge is an opportunity to apply my creative and technical vision, resulting in solutions that not only satisfy market needs but also push the boundaries of what is possible in product design.">Encuentro que el desarrollo de diferentes casos dentro del diseño es un ejercicio extraordinariamente estimulante que me permite explotar al máximo mi creatividad. Cada nuevo desafío es una oportunidad para aplicar mi visión creativa y técnica, lo que resulta en soluciones que no solo satisfacen las necesidades del mercado, sino que también empujan los límites de lo que es posible en el diseño de productos.</p>
 
-                        <p>De manera natural, me siento profundamente atraído por la resolución de problemas. A lo largo de los años, he desarrollado un amplio repertorio de herramientas y metodologías que me permiten enfrentar y descomponer desafíos complejos para simplificarlos. Esta habilidad para simplificar lo complejo es central en mi enfoque de diseño, desde la conceptualización inicial hasta el desarrollo final del producto.</p>
+                        <p data-es="De manera natural, me siento profundamente atraído por la resolución de problemas. A lo largo de los años, he desarrollado un amplio repertorio de herramientas y metodologías que me permiten enfrentar y descomponer desafíos complejos para simplificarlos. Esta habilidad para simplificar lo complejo es central en mi enfoque de diseño, desde la conceptualización inicial hasta el desarrollo final del producto." 
+                           data-en="Naturally, I am deeply drawn to problem-solving. Over the years, I have developed a wide repertoire of tools and methodologies that allow me to face and break down complex challenges to simplify them. This ability to simplify the complex is central to my design approach, from initial conceptualization to final product development.">De manera natural, me siento profundamente atraído por la resolución de problemas. A lo largo de los años, he desarrollado un amplio repertorio de herramientas y metodologías que me permiten enfrentar y descomponer desafíos complejos para simplificarlos. Esta habilidad para simplificar lo complejo es central en mi enfoque de diseño, desde la conceptualización inicial hasta el desarrollo final del producto.</p>
 
-                        <p>Estoy entusiasmado con la posibilidad de unirme a un equipo donde pueda contribuir activamente a proyectos innovadores y colaborar con profesionales que comparten mi pasión por crear productos que no solo funcionen bien, sino que también deleiten e inspiren.</p>
+                        <p data-es="Estoy entusiasmado con la posibilidad de unirme a un equipo donde pueda contribuir activamente a proyectos innovadores y colaborar con profesionales que comparten mi pasión por crear productos que no solo funcionen bien, sino que también deleiten e inspiren." 
+                           data-en="I am excited about the possibility of joining a team where I can actively contribute to innovative projects and collaborate with professionals who share my passion for creating products that not only work well but also delight and inspire.">Estoy entusiasmado con la posibilidad de unirme a un equipo donde pueda contribuir activamente a proyectos innovadores y colaborar con profesionales que comparten mi pasión por crear productos que no solo funcionen bien, sino que también deleiten e inspiren.</p>
 
-                        <p>Gracias por considerar mi perfil. Estoy deseando explorar cómo puedo aportar mi experiencia y entusiasmo a su equipo.</p>
+                        <p data-es="Gracias por considerar mi perfil. Estoy deseando explorar cómo puedo aportar mi experiencia y entusiasmo a su equipo." 
+                           data-en="Thank you for considering my profile. I look forward to exploring how I can bring my experience and enthusiasm to your team.">Gracias por considerar mi perfil. Estoy deseando explorar cómo puedo aportar mi experiencia y entusiasmo a su equipo.</p>
                     </div>
                 </div>
             </div>
@@ -53,8 +63,11 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Kevin García. Todos los derechos reservados.</p>
+            <p>&copy; 2024 Kevin García. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
         </div>
     </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html> 

@@ -156,45 +156,74 @@ window.addEventListener('scroll', () => {
 // Language switching functionality
 let currentLanguage = 'es';
 
+function updateDataAttributes(lang) {
+    document.querySelectorAll('[data-es][data-en]').forEach(element => {
+        element.textContent = lang === 'es' ? element.dataset.es : element.dataset.en;
+    });
+}
+
+function updateSpecificElements(lang) {
+    // Update hero section if exists
+    const heroTitle = document.querySelector('.hero h1');
+    const heroSubtitle = document.querySelector('.hero .subtitle');
+    if (heroTitle) heroTitle.textContent = translations[lang].productDesign;
+    if (heroSubtitle) heroSubtitle.textContent = translations[lang].heroSubtitle;
+    
+    // Update sections titles if they exist
+    const projectsTitle = document.querySelector('#proyectos h2');
+    const experienceTitle = document.querySelector('#experiencia h2');
+    const aboutTitle = document.querySelector('#sobre-mi h2');
+    const contactTitle = document.querySelector('#contacto h2');
+    
+    if (projectsTitle) projectsTitle.textContent = translations[lang].featuredProjects;
+    if (experienceTitle) experienceTitle.textContent = translations[lang].experienceTitle;
+    if (aboutTitle) aboutTitle.textContent = translations[lang].aboutTitle;
+    if (contactTitle) contactTitle.textContent = translations[lang].contactTitle;
+    
+    // Update about section if exists
+    const aboutText = document.querySelector('.about-text p');
+    const cvButton = document.querySelector('.about-text .btn');
+    const learnMoreButton = document.querySelector('.about-text .btn-secondary');
+    
+    if (aboutText) aboutText.textContent = translations[lang].aboutText;
+    if (cvButton) cvButton.textContent = translations[lang].viewCV;
+    if (learnMoreButton) learnMoreButton.textContent = translations[lang].learnMore;
+}
+
 function updateLanguage(lang) {
     currentLanguage = lang;
     document.documentElement.lang = lang;
     
-    // Update navigation links
-    document.querySelector('a[href="#proyectos"]').textContent = translations[lang].projects;
-    document.querySelector('a[href="#experiencia"]').textContent = translations[lang].experience;
-    document.querySelector('a[href="#sobre-mi"]').textContent = translations[lang].aboutMe;
-    document.querySelector('a[href="#contacto"]').textContent = translations[lang].contact;
+    // Update all elements with data attributes
+    updateDataAttributes(lang);
     
-    // Update hero section
-    document.querySelector('.hero h1').textContent = translations[lang].productDesign;
-    document.querySelector('.hero .subtitle').textContent = translations[lang].heroSubtitle;
-    
-    // Update sections titles
-    document.querySelector('#proyectos h2').textContent = translations[lang].featuredProjects;
-    document.querySelector('#experiencia h2').textContent = translations[lang].experienceTitle;
-    document.querySelector('#sobre-mi h2').textContent = translations[lang].aboutTitle;
-    document.querySelector('#contacto h2').textContent = translations[lang].contactTitle;
-    
-    // Update about section
-    document.querySelector('.about-text p').textContent = translations[lang].aboutText;
-    document.querySelector('.about-text .btn').textContent = translations[lang].viewCV;
-    document.querySelector('.about-text .btn-secondary').textContent = translations[lang].learnMore;
-    
-    // Update footer
-    document.querySelector('footer p').textContent = `© 2024 Kevin García. ${translations[lang].copyright}`;
+    // Update specific elements in index.html
+    updateSpecificElements(lang);
     
     // Update language toggle button
     document.querySelector('.current-lang').textContent = translations[lang].currentLang;
     document.querySelector('#languageToggle').setAttribute('aria-label', 
         lang === 'es' ? translations.es.switchToEnglish : translations.en.switchToSpanish
     );
+    
+    // Update cards if they exist
+    updateCardsLanguage();
 }
 
 // Add event listener to language toggle button
 document.getElementById('languageToggle').addEventListener('click', () => {
     const newLang = currentLanguage === 'es' ? 'en' : 'es';
     updateLanguage(newLang);
+});
+
+// Initialize language on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselContainer = document.querySelector('.carousel-container');
+    const experienceGrid = document.querySelector('.experience-grid');
+    
+    if (carouselContainer) populateProjects();
+    if (experienceGrid) populateExperience();
+    updateLanguage('es'); // Set initial language
 });
 
 // Función para actualizar el idioma de las tarjetas
@@ -235,10 +264,4 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(updateCardsLanguage, 0);
         });
     }
-});
-
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    populateProjects();
-    populateExperience();
 }); 
