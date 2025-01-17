@@ -1,86 +1,183 @@
-let currentProjectIndex = 0;
-
 // Populate projects carousel
 function populateProjects() {
     const carouselContainer = document.querySelector('.carousel-container');
     const currentLang = document.documentElement.lang || 'es';
     
-    // Ordenar los proyectos específicamente: Nudge (id: 3) en el centro, Flora (id: 2) a la derecha y Suculenta (id: 1) a la izquierda
+    // Define the specific order of projects by their IDs
+    // Suculenta (1), Flora (2), Nudge (3), Precious Water (4)
     const orderedProjects = [
         projectsData.find(p => p.id === 1), // Suculenta
-        projectsData.find(p => p.id === 3), // Nudge
         projectsData.find(p => p.id === 2), // Flora
+        projectsData.find(p => p.id === 3), // Nudge
         projectsData.find(p => p.id === 4)  // Precious Water
-    ].filter(Boolean); // Eliminar cualquier undefined si algún proyecto no se encuentra
+    ].filter(Boolean); // Remove any undefined entries
+    
+    // Clear existing content
+    carouselContainer.innerHTML = '';
+    
+    // Set initial state
+    const initialState = {
+        prev: orderedProjects.length - 1,  // Precious Water
+        active: 0,                         // Suculenta
+        next: 1                            // Flora
+    };
     
     orderedProjects.forEach((project, index) => {
         const projectElement = document.createElement('div');
-        projectElement.className = `carousel-item ${index === 1 ? 'active' : index === 2 ? 'next' : index === 0 ? 'prev' : ''}`;
+        let position = '';
+        if (index === initialState.active) position = 'active';
+        else if (index === initialState.next) position = 'next';
+        else if (index === initialState.prev) position = 'prev';
+        
+        projectElement.className = `carousel-item ${position}`;
+        projectElement.dataset.projectIndex = index;
+        projectElement.dataset.projectId = project.id;
         
         let imageContent = '';
         if (project.id === 9 && project.animatedSequence) {
-            // Para el proyecto 9, crear un contenedor para la secuencia animada
             imageContent = `<div class="animated-sequence">
                 <img src="${project.animatedSequence.images[0]}" alt="${currentLang === 'es' ? project.title : project.title_en}" loading="lazy">
             </div>`;
         } else {
-            // Para otros proyectos, mostrar la imagen principal normalmente
             imageContent = `<img src="${project.mainImage}" alt="${currentLang === 'es' ? project.title : project.title_en}" loading="lazy">`;
         }
         
-        projectElement.innerHTML = `
-            <a href="project-template.html?id=${project.id}&type=project">
+        // Only add link to project for the active (center) item
+        const content = position === 'active' ? 
+            `<a href="project-template.html?id=${project.id}&type=project">
                 ${imageContent}
                 <div class="carousel-project-info">
                     <h3 data-es="${project.title}" data-en="${project.title_en}">${currentLang === 'es' ? project.title : project.title_en}</h3>
                     <p data-es="${project.shortDescription}" data-en="${project.shortDescription_en}">${currentLang === 'es' ? project.shortDescription : project.shortDescription_en}</p>
                 </div>
-            </a>
-        `;
-        carouselContainer.appendChild(projectElement);
-
-        // Iniciar la animación si es el proyecto 9
-        if (project.id === 9 && project.animatedSequence) {
-            const img = projectElement.querySelector('.animated-sequence img');
-            let currentIndex = 0;
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % project.animatedSequence.images.length;
-                img.src = project.animatedSequence.images[currentIndex];
-            }, project.animatedSequence.interval);
+            </a>` :
+            `<div class="carousel-clickable">
+                ${imageContent}
+                <div class="carousel-project-info">
+                    <h3 data-es="${project.title}" data-en="${project.title_en}">${currentLang === 'es' ? project.title : project.title_en}</h3>
+                    <p data-es="${project.shortDescription}" data-en="${project.shortDescription_en}">${currentLang === 'es' ? project.shortDescription : project.shortDescription_en}</p>
+                </div>
+            </div>`;
+        
+        projectElement.innerHTML = content;
+        
+        // Add click event for side images
+        if (position !== 'active') {
+            projectElement.addEventListener('click', () => {
+                navigateCarousel(position === 'prev' ? 'prev' : 'next');
+            });
         }
+        
+        carouselContainer.appendChild(projectElement);
     });
-
-    // Add event listeners for navigation buttons
-    const prevButton = document.querySelector('.carousel-button.prev');
-    const nextButton = document.querySelector('.carousel-button.next');
-
-    prevButton.addEventListener('click', navigateCarousel.bind(null, 'prev'));
-    nextButton.addEventListener('click', navigateCarousel.bind(null, 'next'));
 }
 
 function navigateCarousel(direction) {
     const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
     
-    // Remove all classes first
-    items.forEach(item => {
-        item.classList.remove('active', 'prev', 'next');
+    // Get current active item and its index
+    const currentActiveItem = document.querySelector('.carousel-item.active');
+    let currentIndex = parseInt(currentActiveItem.dataset.projectIndex);
+    
+    // Calculate new indices ensuring circular navigation
+    let newIndex = direction === 'next' ? 
+        (currentIndex + 1) % totalItems : 
+        (currentIndex - 1 + totalItems) % totalItems;
+    
+    let prevIndex = (newIndex - 1 + totalItems) % totalItems;
+    let nextIndex = (newIndex + 1) % totalItems;
+    
+    // First phase: Set up initial positions for the animation
+    items.forEach((item, index) => {
+        // Remove any existing click handlers
+        item.onclick = null;
+        
+        // Remove link from active item
+        const link = item.querySelector('a');
+        if (link) {
+            const div = document.createElement('div');
+            div.className = 'carousel-clickable';
+            div.innerHTML = link.innerHTML;
+            link.replaceWith(div);
+        }
+        
+        // Remove all classes except those needed for initial position
+        item.classList.remove('active', 'prev', 'next', 'entering-active', 'entering-prev', 'entering-next');
+        
+        // Set up initial positions for entering elements
+        if (index === prevIndex) {
+            item.classList.add('entering-from-' + (direction === 'next' ? 'right' : 'left'));
+        } else if (index === nextIndex) {
+            item.classList.add('entering-from-' + (direction === 'next' ? 'right' : 'left'));
+        } else if (index === newIndex) {
+            item.classList.add('entering-from-' + (direction === 'next' ? 'right' : 'left'));
+        }
+        
+        // Add movement classes for exiting elements
+        if (index === currentIndex) {
+            item.classList.add(direction === 'next' ? 'moving-left' : 'moving-right');
+        }
     });
-
-    // Update current index
-    if (direction === 'next') {
-        currentProjectIndex = (currentProjectIndex + 1) % items.length;
-    } else {
-        currentProjectIndex = (currentProjectIndex - 1 + items.length) % items.length;
-    }
-
-    // Calculate prev and next indices
-    const prevIndex = (currentProjectIndex - 1 + items.length) % items.length;
-    const nextIndex = (currentProjectIndex + 1) % items.length;
-
-    // Apply new classes
-    items[prevIndex].classList.add('prev');
-    items[currentProjectIndex].classList.add('active');
-    items[nextIndex].classList.add('next');
+    
+    // Second phase: Trigger the animations
+    requestAnimationFrame(() => {
+        items.forEach((item, index) => {
+            if (index === prevIndex) {
+                item.classList.add('entering-prev');
+            } else if (index === nextIndex) {
+                item.classList.add('entering-next');
+            } else if (index === newIndex) {
+                item.classList.add('entering-active');
+            }
+        });
+    });
+    
+    // Third phase: Clean up and set final states
+    setTimeout(() => {
+        items.forEach(item => {
+            // Remove all transition classes
+            item.classList.remove(
+                'moving-left', 'moving-right',
+                'entering-from-left', 'entering-from-right',
+                'entering-active', 'entering-prev', 'entering-next'
+            );
+            // Remove any existing event listeners
+            item.replaceWith(item.cloneNode(true));
+        });
+        
+        // Re-select items after replacing nodes
+        const updatedItems = document.querySelectorAll('.carousel-item');
+        
+        // Apply final classes
+        updatedItems[prevIndex].classList.add('prev');
+        updatedItems[nextIndex].classList.add('next');
+        updatedItems[newIndex].classList.add('active');
+        
+        // Add click handlers for side items
+        const prevItem = updatedItems[prevIndex];
+        const nextItem = updatedItems[nextIndex];
+        
+        // Add click event listeners
+        prevItem.addEventListener('click', () => {
+            navigateCarousel('prev');
+        });
+        
+        nextItem.addEventListener('click', () => {
+            navigateCarousel('next');
+        });
+        
+        // Update active item with link
+        const activeItem = updatedItems[newIndex];
+        const clickable = activeItem.querySelector('.carousel-clickable');
+        if (clickable) {
+            const link = document.createElement('a');
+            const projectId = parseInt(activeItem.dataset.projectId);
+            link.href = `project-template.html?id=${projectId}&type=project`;
+            link.innerHTML = clickable.innerHTML;
+            clickable.replaceWith(link);
+        }
+    }, 600); // Full duration of the CSS transition
 }
 
 // Populate experience grid
