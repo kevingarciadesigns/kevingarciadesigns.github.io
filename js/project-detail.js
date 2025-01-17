@@ -1,3 +1,104 @@
+// Store project data globally
+let currentProjectData = null;
+let currentProjectType = null;
+let currentLanguage = 'es'; // Add global language tracking
+
+function updateProjectContent(lang) {
+    if (!currentProjectData) return;
+
+    // Update HTML lang attribute and current language
+    document.documentElement.lang = lang;
+    currentLanguage = lang;
+
+    // Update page title
+    document.title = `${lang === 'es' ? currentProjectData.title : currentProjectData.title_en} - Kevin García`;
+
+    // Update project information
+    document.getElementById('project-title').textContent = lang === 'es' ? currentProjectData.title : currentProjectData.title_en;
+    document.getElementById('project-description').textContent = lang === 'es' ? currentProjectData.shortDescription : currentProjectData.shortDescription_en;
+    
+    // Update section titles
+    document.querySelectorAll('[data-es][data-en]').forEach(element => {
+        element.textContent = lang === 'es' ? element.dataset.es : element.dataset.en;
+    });
+    
+    // Update full description
+    const fullDescriptionContainer = document.getElementById('project-full-description');
+    fullDescriptionContainer.innerHTML = lang === 'es' ? currentProjectData.fullDescription : currentProjectData.fullDescription_en;
+    
+    // Re-add learn more button for Nudge if needed
+    if (currentProjectData.title === "Nudge") {
+        const existingButton = fullDescriptionContainer.querySelector('.learn-more-button');
+        if (!existingButton) {
+            const learnMoreButton = document.createElement('a');
+            learnMoreButton.href = 'nudge-details.html';
+            learnMoreButton.className = 'learn-more-button';
+            learnMoreButton.textContent = lang === 'es' ? 'Saber más' : 'Learn more';
+            fullDescriptionContainer.appendChild(learnMoreButton);
+        } else {
+            existingButton.textContent = lang === 'es' ? 'Saber más' : 'Learn more';
+        }
+    }
+
+    // Update details
+    const detailsList = document.getElementById('project-details');
+    detailsList.innerHTML = ''; // Clear existing details
+    
+    // Add year with translation
+    const yearLi = document.createElement('li');
+    yearLi.textContent = `${lang === 'es' ? 'Año' : 'Year'}: ${currentProjectData.year}`;
+    detailsList.appendChild(yearLi);
+    
+    // Add tools with translation
+    const toolsLi = document.createElement('li');
+    const toolsArray = lang === 'es' ? currentProjectData.tools : currentProjectData.tools_en;
+    toolsLi.textContent = `${lang === 'es' ? 'Herramientas' : 'Tools'}: ${toolsArray.join(', ')}`;
+    detailsList.appendChild(toolsLi);
+    
+    // Add other details with translation
+    const detailsArray = lang === 'es' ? currentProjectData.details : currentProjectData.details_en;
+    detailsArray.forEach(detail => {
+        const li = document.createElement('li');
+        li.textContent = detail;
+        detailsList.appendChild(li);
+    });
+
+    // Update image alt texts
+    document.querySelectorAll('.project-images img').forEach(img => {
+        if (img.alt.includes('Secuencia') || img.alt.includes('sequence')) {
+            img.alt = `${lang === 'es' ? currentProjectData.title : currentProjectData.title_en} - ${lang === 'es' ? 'Secuencia animada' : 'Animated sequence'}`;
+        } else if (img.alt.includes('adicional') || img.alt.includes('additional')) {
+            img.alt = `${lang === 'es' ? currentProjectData.title : currentProjectData.title_en} - ${lang === 'es' ? 'Imagen adicional' : 'Additional image'}`;
+        } else {
+            img.alt = lang === 'es' ? currentProjectData.title : currentProjectData.title_en;
+        }
+    });
+
+    // Update navigation links if they exist
+    const navPrevious = document.querySelector('.nav-previous a');
+    const navNext = document.querySelector('.nav-next a');
+    
+    if (navPrevious) {
+        const prevItem = currentProjectType === 'project' ? getPreviousProject(currentProjectData.id) : getPreviousExperience(currentProjectData.id);
+        if (prevItem) {
+            navPrevious.textContent = lang === 'es' ? prevItem.title : prevItem.title_en;
+        }
+    }
+    
+    if (navNext) {
+        const nextItem = currentProjectType === 'project' ? getNextProject(currentProjectData.id) : getNextExperience(currentProjectData.id);
+        if (nextItem) {
+            navNext.textContent = lang === 'es' ? nextItem.title : nextItem.title_en;
+        }
+    }
+
+    // Update language toggle button text
+    const langButton = document.querySelector('.current-lang');
+    if (langButton) {
+        langButton.textContent = lang.toUpperCase();
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Get parameters from URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -9,49 +110,26 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Get the item based on type
-    const item = type === 'project' ? getProjectById(id) : getExperienceById(id);
+    // Store project data globally
+    currentProjectType = type;
+    currentProjectData = type === 'project' ? getProjectById(id) : getExperienceById(id);
     
-    if (!item) {
+    if (!currentProjectData) {
         window.location.href = 'index.html';
         return;
     }
 
-    // Get current language
-    const currentLang = document.documentElement.lang || 'es';
+    // Initial content population with default language
+    updateProjectContent(currentLanguage);
 
-    // Update page title
-    document.title = `${currentLang === 'es' ? item.title : item.title_en} - Kevin García`;
-
-    // Populate item information
-    document.getElementById('project-title').textContent = currentLang === 'es' ? item.title : item.title_en;
-    document.getElementById('project-description').textContent = currentLang === 'es' ? item.shortDescription : item.shortDescription_en;
-    
-    // Añadir el botón "Saber más" solo para el proyecto Nudge
-    const fullDescriptionContainer = document.getElementById('project-full-description');
-    fullDescriptionContainer.innerHTML = currentLang === 'es' ? item.fullDescription : item.fullDescription_en;
-    
-    if (item.title === "Nudge") {
-        const learnMoreButton = document.createElement('a');
-        learnMoreButton.href = 'nudge-details.html';
-        learnMoreButton.className = 'learn-more-button';
-        learnMoreButton.textContent = currentLang === 'es' ? 'Saber más' : 'Learn more';
-        fullDescriptionContainer.appendChild(learnMoreButton);
+    // Add language change listener
+    const languageToggle = document.getElementById('languageToggle');
+    if (languageToggle) {
+        languageToggle.addEventListener('click', () => {
+            const newLang = currentLanguage === 'es' ? 'en' : 'es';
+            updateProjectContent(newLang);
+        });
     }
-
-    // Populate details
-    const detailsList = document.getElementById('project-details');
-    const details = [
-        `${currentLang === 'es' ? 'Año' : 'Year'}: ${item.year}`,
-        `${currentLang === 'es' ? 'Herramientas' : 'Tools'}: ${(currentLang === 'es' ? item.tools : item.tools_en).join(', ')}`,
-        ...(currentLang === 'es' ? item.details : item.details_en)
-    ];
-
-    details.forEach(detail => {
-        const li = document.createElement('li');
-        li.textContent = detail;
-        detailsList.appendChild(li);
-    });
 
     // Populate images
     const imagesContainer = document.querySelector('.project-images');
@@ -59,47 +137,47 @@ document.addEventListener('DOMContentLoaded', () => {
     // Imagen principal - Solo ocultar para experiencia ID 2 y cuando es experiencia ID 9
     if (!(type === 'experience' && (id === '2' || id === '9'))) {
         const mainImage = document.createElement('img');
-        mainImage.src = item.mainImage;
-        mainImage.alt = currentLang === 'es' ? item.title : item.title_en;
+        mainImage.src = currentProjectData.mainImage;
+        mainImage.alt = currentLanguage === 'es' ? currentProjectData.title : currentProjectData.title_en;
         imagesContainer.appendChild(mainImage);
     }
 
     // Si es la experiencia 9, añadir la secuencia animada al principio
     let hasAnimatedSequence = false;
-    if (type === 'experience' && id === '9' && item.animatedSequence) {
+    if (type === 'experience' && id === '9' && currentProjectData.animatedSequence) {
         hasAnimatedSequence = true;
         const animContainer = document.createElement('div');
         animContainer.className = 'animated-sequence';
         const img = document.createElement('img');
-        img.alt = `${currentLang === 'es' ? item.title : item.title_en} - ${currentLang === 'es' ? 'Secuencia animada' : 'Animated sequence'}`;
+        img.alt = `${currentLanguage === 'es' ? currentProjectData.title : currentProjectData.title_en} - ${currentLanguage === 'es' ? 'Secuencia animada' : 'Animated sequence'}`;
         img.loading = 'lazy';
         
         // Cargar la primera imagen
-        img.src = item.animatedSequence.images[0];
+        img.src = currentProjectData.animatedSequence.images[0];
         animContainer.appendChild(img);
         imagesContainer.appendChild(animContainer);
 
         // Iniciar la animación
         let currentIndex = 0;
         setInterval(() => {
-            currentIndex = (currentIndex + 1) % item.animatedSequence.images.length;
-            img.src = item.animatedSequence.images[currentIndex];
-        }, item.animatedSequence.interval);
+            currentIndex = (currentIndex + 1) % currentProjectData.animatedSequence.images.length;
+            img.src = currentProjectData.animatedSequence.images[currentIndex];
+        }, currentProjectData.animatedSequence.interval);
     }
 
     // Videos - Insertamos los videos justo después de la imagen principal
-    if (item.videos && item.videos.length > 0) {
+    if (currentProjectData.videos && currentProjectData.videos.length > 0) {
         const videoContainer = document.createElement('div');
         videoContainer.className = 'video-container';
         
         // Comportamiento diferente para el proyecto Flora
-        if (item.title === "Flora") {
+        if (currentProjectData.title === "Flora") {
             videoContainer.style.display = 'grid';
             videoContainer.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
             videoContainer.style.gap = '20px';
             videoContainer.style.marginTop = '40px';
             
-            item.videos.forEach(videoSrc => {
+            currentProjectData.videos.forEach(videoSrc => {
                 const video = document.createElement('video');
                 video.autoplay = true;
                 video.loop = true;
@@ -128,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
             imagesContainer.appendChild(videoContainer);
         } else {
             // Comportamiento original para Nudge y otros proyectos
-            item.videos.forEach(videoSrc => {
+            currentProjectData.videos.forEach(videoSrc => {
                 const video = document.createElement('video');
                 
                 video.addEventListener('loadeddata', () => {
@@ -179,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 muteButton.className = 'mute-button';
                 const muteImage = document.createElement('img');
                 muteImage.src = 'images/P6/music.png';
-                muteImage.alt = currentLang === 'es' ? 'Alternar sonido' : 'Toggle sound';
+                muteImage.alt = currentLanguage === 'es' ? 'Alternar sonido' : 'Toggle sound';
                 muteImage.style.width = '20px';
                 muteImage.style.height = '20px';
                 muteImage.style.filter = 'brightness(0) invert(1)';
@@ -204,11 +282,11 @@ document.addEventListener('DOMContentLoaded', () => {
             imagesContainer.insertBefore(videoContainer, imagesContainer.children[1]);
             
             // Añadir secuencia animada de 02nudge solo para el proyecto Nudge
-            if (item.title === "Nudge") {
+            if (currentProjectData.title === "Nudge") {
                 const animContainer = document.createElement('div');
                 animContainer.className = 'animated-sequence';
                 const img = document.createElement('img');
-                img.alt = currentLang === 'es' ? 'Nudge - Secuencia dinámica' : 'Nudge - Dynamic sequence';
+                img.alt = currentLanguage === 'es' ? 'Nudge - Secuencia dinámica' : 'Nudge - Dynamic sequence';
                 img.loading = 'lazy';
                 
                 // Array con las imágenes 02nudge
@@ -236,35 +314,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Imágenes adicionales después del video
-    if (item.additionalImages && item.additionalImages.length > 0) {
-        item.additionalImages.forEach(imageSrc => {
+    if (currentProjectData.additionalImages && currentProjectData.additionalImages.length > 0) {
+        currentProjectData.additionalImages.forEach(imageSrc => {
             const img = document.createElement('img');
             img.src = imageSrc;
-            img.alt = `${currentLang === 'es' ? item.title : item.title_en} - ${currentLang === 'es' ? 'Imagen adicional' : 'Additional image'}`;
+            img.alt = `${currentLanguage === 'es' ? currentProjectData.title : currentProjectData.title_en} - ${currentLanguage === 'es' ? 'Imagen adicional' : 'Additional image'}`;
             img.loading = 'lazy';
             imagesContainer.appendChild(img);
         });
     }
 
     // Secuencia animada de imágenes (solo si no se ha mostrado antes)
-    if (!hasAnimatedSequence && item.animatedSequence && item.animatedSequence.images.length > 0) {
+    if (!hasAnimatedSequence && currentProjectData.animatedSequence && currentProjectData.animatedSequence.images.length > 0) {
         const animContainer = document.createElement('div');
         animContainer.className = 'animated-sequence';
         const img = document.createElement('img');
-        img.alt = `${currentLang === 'es' ? item.title : item.title_en} - ${currentLang === 'es' ? 'Secuencia animada' : 'Animated sequence'}`;
+        img.alt = `${currentLanguage === 'es' ? currentProjectData.title : currentProjectData.title_en} - ${currentLanguage === 'es' ? 'Secuencia animada' : 'Animated sequence'}`;
         img.loading = 'lazy';
         
         // Cargar la primera imagen
-        img.src = item.animatedSequence.images[0];
+        img.src = currentProjectData.animatedSequence.images[0];
         animContainer.appendChild(img);
         imagesContainer.appendChild(animContainer);
 
         let currentIndex = 0;
         // Iniciar la animación
         setInterval(() => {
-            currentIndex = (currentIndex + 1) % item.animatedSequence.images.length;
-            img.src = item.animatedSequence.images[currentIndex];
-        }, item.animatedSequence.interval);
+            currentIndex = (currentIndex + 1) % currentProjectData.animatedSequence.images.length;
+            img.src = currentProjectData.animatedSequence.images[currentIndex];
+        }, currentProjectData.animatedSequence.interval);
     }
 
     // Setup navigation
@@ -277,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prevItem) {
         navPrevious.innerHTML = `
             <a href="project-template.html?id=${prevItem.id}&type=${type}">
-                ${currentLang === 'es' ? prevItem.title : prevItem.title_en}
+                ${currentLanguage === 'es' ? prevItem.title : prevItem.title_en}
             </a>
         `;
     }
@@ -285,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextItem) {
         navNext.innerHTML = `
             <a href="project-template.html?id=${nextItem.id}&type=${type}">
-                ${currentLang === 'es' ? nextItem.title : nextItem.title_en}
+                ${currentLanguage === 'es' ? nextItem.title : nextItem.title_en}
             </a>
         `;
     }
