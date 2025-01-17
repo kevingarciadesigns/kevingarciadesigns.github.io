@@ -1,7 +1,7 @@
 // Store project data globally
 let currentProjectData = null;
 let currentProjectType = null;
-let currentLanguage = 'es'; // Add global language tracking
+let currentLanguage = localStorage.getItem('selectedLanguage') || 'en'; // Default to English and get from localStorage
 
 function updateProjectContent(lang) {
     if (!currentProjectData) return;
@@ -9,6 +9,7 @@ function updateProjectContent(lang) {
     // Update HTML lang attribute and current language
     document.documentElement.lang = lang;
     currentLanguage = lang;
+    localStorage.setItem('selectedLanguage', lang); // Store language preference
 
     // Update page title
     document.title = `${lang === 'es' ? currentProjectData.title : currentProjectData.title_en} - Kevin García`;

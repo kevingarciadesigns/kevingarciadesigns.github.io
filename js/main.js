@@ -154,7 +154,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Language switching functionality
-let currentLanguage = 'es';
+let currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
 
 function updateDataAttributes(lang) {
     document.querySelectorAll('[data-es][data-en]').forEach(element => {
@@ -192,6 +192,7 @@ function updateSpecificElements(lang) {
 
 function updateLanguage(lang) {
     currentLanguage = lang;
+    localStorage.setItem('selectedLanguage', lang);
     document.documentElement.lang = lang;
     
     // Update all elements with data attributes
@@ -223,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (carouselContainer) populateProjects();
     if (experienceGrid) populateExperience();
-    updateLanguage('es'); // Set initial language
+    updateLanguage(currentLanguage); // Use stored or default language
 });
 
 // Función para actualizar el idioma de las tarjetas
