@@ -53,7 +53,7 @@ const projectsData = [
             ],
             interval: 1000
         },
-        videos: ["images/P2/comp 1.mp4", "images/P2/secuencia 01.mp4"],
+        videos: ["images/P2/Comp1.mp4", "images/P2/Secuencia01.mp4"],
         details: [
             "Investigación de materiales sostenibles",
             "Diseño para manufactura",
