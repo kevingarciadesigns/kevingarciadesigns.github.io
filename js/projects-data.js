@@ -197,17 +197,17 @@ const experienceData = [
         additionalImages: ["images/P12/5.jpg", "images/P12/7.jpg"],
         animatedSequence: {
             images: [
-                "images/P12/captura1.JPG",
-                "images/P12/captura2.JPG",
-                "images/P12/captura3.JPG",
-                "images/P12/captura4.JPG",
-                "images/P12/captura5.JPG",
-                "images/P12/captura6.JPG",
-                "images/P12/captura7.JPG",
-                "images/P12/captura8.JPG",
-                "images/P12/captura9.JPG",
-                "images/P12/captura10.JPG",
-                "images/P12/captura11.JPG"
+                "images/P12/Captura1.JPG",
+                "images/P12/Captura2.JPG",
+                "images/P12/Captura3.JPG",
+                "images/P12/Captura4.JPG",
+                "images/P12/Captura5.JPG",
+                "images/P12/Captura6.JPG",
+                "images/P12/Captura7.JPG",
+                "images/P12/Captura8.JPG",
+                "images/P12/Captura9.JPG",
+                "images/P12/Captura10.JPG",
+                "images/P12/Captura11.JPG"
             ],
             interval: 1000
         },
